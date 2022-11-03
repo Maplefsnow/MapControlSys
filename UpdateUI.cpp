@@ -2,19 +2,13 @@
 #include "MotorPanel.h"
 #include "Axis.h"
 
+UpdateUI::UpdateUI(QWidget* panel) {
+	this->panel = panel;
+}
+
 void UpdateUI::run() {
-	
-	//QMetaObject::invokeMethod();
-	
 	while (1) {
-		QString motorStatus, motorCmdPos;
-
-
-
-		emit updateCmdPos(motorCmdPos);
-		emit updateStatus(motorStatus);
-
-		qDebug() << "qwq!";
-		QThread::sleep(1);  // msleep
+		QMetaObject::invokeMethod(this->panel, "updateAxisCmdPos", Qt::DirectConnection);
+		QThread::sleep(1);
 	}
 }

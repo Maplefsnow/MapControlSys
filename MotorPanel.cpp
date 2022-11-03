@@ -9,6 +9,13 @@ MotorPanel::MotorPanel(QWidget* widget) : QWidget(widget) {
 MotorPanel::~MotorPanel() {
 }
 
+void MotorPanel::updateAxisCmdPos() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	DOUBLE pos = this->axis.getCmdPos();
+	mainWindow->ui.label_cmdPos->setText(tr("%.3f").arg(pos));
+}
+
 void MotorPanel::checkCard() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
@@ -22,7 +29,7 @@ void MotorPanel::checkCard() {
 
 	mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
 
-	UpdateUI *thread = new UpdateUI(); thread->start();
+	UpdateUI *thread = new UpdateUI(this); thread->start();
 }
 
 void MotorPanel::initAxis() {
@@ -157,11 +164,3 @@ void MotorPanel::motorStop() {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
 	}
 }
-
-void MotorPanel::handleUpdateCmdPos(QString str) {
-	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
-
-	mainWindow->ui.label_cmdPos->setText(str);
-}
-
-

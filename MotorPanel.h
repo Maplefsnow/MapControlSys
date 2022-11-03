@@ -18,6 +18,9 @@ public:
 	HAND deviceHand = 0;
 	Axis axis;
 
+public:
+	void updateAxisCmdPos();
+
 public slots:
 	void initAxis();
 	void checkCard();
@@ -26,7 +29,5 @@ public slots:
 	void motorRun();
 	void motorRunRev();
 	void motorStop();
-
-	void handleUpdateCmdPos(QString);
 };
 

@@ -2,15 +2,15 @@
 
 #include <qthread.h>
 #include <qdebug.h>
+#include <qwidget.h>
+#include "MotorPanel.h"
 
 class UpdateUI : public QThread {
 	Q_OBJECT
 public:
-	UpdateUI() {}
+	UpdateUI(QWidget *);
+	QWidget* panel;
 protected:
 	void run();
-signals:
-	void updateCmdPos(QString);
-	void updateStatus(QString);
 };
 
