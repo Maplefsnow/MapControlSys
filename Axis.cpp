@@ -1,56 +1,83 @@
 #include "Axis.h"
 #include <qdebug.h>
 
+#define throwError(x) \
+	{\
+		ret = x;\
+		if (ret != 0) {\
+			char errorMsg[100];\
+			Acm_GetErrorMessage(ret, errorMsg, 100);\
+			ret = 0;\
+			throw errorMsg;\
+		}\
+	}
+
+ULONG ret = 0;
+
 Axis::Axis(HAND devHand, USHORT num) {
 	if(devHand == 0) return;
 
-	ULONG ret = 0;
-
-	ret = Acm_AxOpen(devHand, num, &hand);
-	if(ret != 0) throw "Open device FAILED!";
-	ret = Acm_SetU32Property(hand, CFG_AxPulseOutMode, 2);
-	if(ret != 0) throw "Set Pulse_Out_Mode FAILED!";
+	throwError(Acm_AxOpen(devHand, num, &this->hand));
+	throwError(Acm_SetU32Property(this->hand, CFG_AxPulseOutMode, 2));
+	throwError(Acm_AxSetCmdPosition(this->hand, 0.0));
+	throwError(Acm_AxSetActualPosition(this->hand, 0.0));
 
 	this->axisID = num;
 }
 
+Axis::Axis() {
+	this->hand = 0;
+}
+
 Axis::~Axis() {
-	if(hand == 0) return;
-	Acm_AxClose(&hand);
 }
 
 void Axis::relMove(DOUBLE distance) {
-	Acm_AxMoveRel(hand, distance);
+	throwError(Acm_AxMoveRel(this->hand, distance));
 }
 
-void Axis::setVelParams(DOUBLE i_initVel, DOUBLE i_runningVel, DOUBLE i_acc, DOUBLE i_dec, DOUBLE mode) {
-	Acm_SetF64Property(hand, PAR_AxVelLow, i_initVel);
-	Acm_SetF64Property(hand, PAR_AxVelHigh, i_runningVel);
-	Acm_SetF64Property(hand, PAR_AxAcc, i_acc);
-	Acm_SetF64Property(hand, PAR_AxDec, i_dec);
-	Acm_SetF64Property(hand, PAR_AxJerk, mode);
+void Axis::contiMove(USHORT dir) {
+	throwError(Acm_AxMoveVel(this->hand, dir));
+}
 
-	initVel = i_initVel;
-	runningVel = i_runningVel;
-	acc = i_acc;
-	dec = i_dec;
-	velMode = mode;
+void Axis::stop() {
+	throwError(Acm_AxStopDec(this->hand));
+}
+
+void Axis::setVelParams(DOUBLE i_initVel, DOUBLE i_runningVel, DOUBLE i_acc, DOUBLE i_dec, DOUBLE mode) {	
+	throwError(Acm_SetF64Property(hand, PAR_AxVelLow, i_initVel));
+	throwError(Acm_SetF64Property(hand, PAR_AxVelHigh, i_runningVel));
+	throwError(Acm_SetF64Property(hand, PAR_AxAcc, i_acc));
+	throwError(Acm_SetF64Property(hand, PAR_AxDec, i_dec));
+	throwError(Acm_SetF64Property(hand, PAR_AxJerk, mode));
+
+	this->initVel = i_initVel;
+	this->runningVel = i_runningVel;
+	this->acc = i_acc;
+	this->dec = i_dec;
+	this->velMode = mode;
 }
 
 void Axis::setPPU(ULONG i_PPU) {
-	Acm_SetU32Property(hand, CFG_AxPPU, i_PPU);
-	Acm_SetU32Property(hand, CFG_AxPPUDenominator, 1);
-	PPU = i_PPU;
-	PPUDenominator = 1;
+	throwError(Acm_SetU32Property(this->hand, CFG_AxPPU, i_PPU));
+	throwError(Acm_SetU32Property(this->hand, CFG_AxPPUDenominator, 1));
+	this->PPU = i_PPU;
+	this->PPUDenominator = 1;
 }
 
 void Axis::setPPU(ULONG i_PPU, ULONG denominator) {
-	Acm_SetU32Property(hand, CFG_AxPPU, i_PPU);
-	Acm_SetU32Property(hand, CFG_AxPPUDenominator, denominator);
-	PPU = i_PPU;
-	PPUDenominator = denominator;
+	throwError(Acm_SetU32Property(this->hand, CFG_AxPPU, i_PPU));
+	throwError(Acm_SetU32Property(this->hand, CFG_AxPPUDenominator, denominator));
+	this->PPU = i_PPU;
+	this->PPUDenominator = denominator;
 }
 
 double Axis::getPPU() {
 	return PPU / PPUDenominator;
+}
+
+double Axis::getCmdPos() {
+	DOUBLE pos = 0.0;
+	throwError(Acm_AxGetCmdPosition(this->hand, &pos));
+	return pos;
 }

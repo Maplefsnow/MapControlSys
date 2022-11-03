@@ -16,12 +16,17 @@ public:
 
 	DWORD deviceNum = 0;
 	HAND deviceHand = 0;
-	HAND axisHand = 0;
-	Axis axis = Axis::Axis(HAND(0), USHORT(0));
+	Axis axis;
 
 public slots:
 	void initAxis();
-	void setMotorParams();
 	void checkCard();
+	void setMotorParams();
+	void motorRunDis();
+	void motorRun();
+	void motorRunRev();
+	void motorStop();
+
+	void handleUpdateCmdPos(QString);
 };
 

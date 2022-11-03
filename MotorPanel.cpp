@@ -1,14 +1,12 @@
 #include "MotorPanel.h"
 #include "MainWindow.h"
+#include "UpdateUI.h"
 
 MotorPanel::MotorPanel(QWidget* widget) : QWidget(widget) {
 	
 }
 
 MotorPanel::~MotorPanel() {
-	if(this->deviceHand == 0) return;
-
-	Acm_DevClose(&this->deviceHand);
 }
 
 void MotorPanel::checkCard() {
@@ -23,6 +21,8 @@ void MotorPanel::checkCard() {
 	sprintf(deviceNumStr, "0x%x", deviceNum);
 
 	mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
+
+	UpdateUI *thread = new UpdateUI(); thread->start();
 }
 
 void MotorPanel::initAxis() {
@@ -41,6 +41,7 @@ void MotorPanel::initAxis() {
 	}
 	catch (const char *msg) {
 		mainWindow->ui.statusBar->showMessage(msg, 2000);
+		return;
 	}
 	
 	char successMsg[100];
@@ -55,14 +56,112 @@ void MotorPanel::setMotorParams() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
 
-	this->axis.setPPU(mainWindow->ui.spinBox_PPU->value(), mainWindow->ui.spinBox_PPUDenominator->value());
-	this->axis.setVelParams(mainWindow->ui.spinBox_initVel->value(),
-							mainWindow->ui.spinBox_runningVel->value(),
-							mainWindow->ui.spinBox_acc->value(),
-							mainWindow->ui.spinBox_dec->value());
+	try {
+		this->axis.setPPU(mainWindow->ui.spinBox_PPU->value(), mainWindow->ui.spinBox_PPUDenominator->value());
 
+
+		this->axis.setVelParams(mainWindow->ui.spinBox_initVel->value(),
+			mainWindow->ui.spinBox_runningVel->value(),
+			mainWindow->ui.spinBox_acc->value(),
+			mainWindow->ui.spinBox_dec->value());
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+		return;
+	}
+	
 	mainWindow->ui.statusBar->showMessage("Params set success!", 2000);
+}
+
+void MotorPanel::motorRunDis() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if(this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.relMove(mainWindow->ui.spinBox_runDis->value());
+	}
+	catch (const char *errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::motorRun() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.contiMove(0);
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::motorRunRev() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.contiMove(1);
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::motorStop() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.stop();
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::handleUpdateCmdPos(QString str) {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	mainWindow->ui.label_cmdPos->setText(str);
 }
 
 

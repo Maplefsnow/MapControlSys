@@ -11,15 +11,19 @@ public:
 
 public:
 	Axis(HAND devHand, USHORT num);
+	Axis();
 	~Axis();
 
 	void relMove(DOUBLE distance);
+	void contiMove(USHORT dir);
+	void stop();
 
 	void setVelParams(DOUBLE i_initVel, DOUBLE i_runningVel, DOUBLE i_acc, DOUBLE i_dec, DOUBLE mode = 0.0);
 	void setPPU(ULONG i_PPU, ULONG denominator);
 	void setPPU(ULONG i_PPU);
 
 	double getPPU();
+	double getCmdPos();
 
 public:
 	HAND hand = 0;

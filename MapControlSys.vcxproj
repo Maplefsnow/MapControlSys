@@ -99,6 +99,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MotorPanel.cpp" />
+    <ClCompile Include="UpdateUI.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui">
       <QtUicDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\</QtUicDir>
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h" />
+    <QtMoc Include="UpdateUI.h" />
     <QtMoc Include="MotorPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

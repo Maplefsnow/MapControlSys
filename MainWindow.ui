@@ -6,464 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>805</width>
-    <height>360</height>
+    <width>688</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_5">
-    <item row="0" column="0">
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="1" column="0">
      <widget class="MotorPanel" name="motorWidget" native="true">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0" rowspan="2">
-        <widget class="QGroupBox" name="groupBox">
-         <property name="font">
-          <font>
-           <family>阿里巴巴普惠体 2.0 55 Regular</family>
-           <pointsize>11</pointsize>
-           <italic>false</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="title">
-          <string>电机参数设置</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>初速度</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>减速度</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>加速度</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QSpinBox" name="spinBox_initVel">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QSpinBox" name="spinBox_runningVel">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>PPU Denominator</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox_PPUDenominator">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>1</number>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>运行速度</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QSpinBox" name="spinBox_PPU">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>PPU</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="spinBox_dec">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>1</width>
-              <height>1111</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="spinBox_acc">
-            <property name="minimumSize">
-             <size>
-              <width>110</width>
-              <height>22</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>阿里巴巴普惠体 2.0 55 Regular</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="mouseTracking">
-             <bool>false</bool>
-            </property>
-            <property name="tabletTracking">
-             <bool>false</bool>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::DefaultContextMenu</enum>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0" colspan="2">
-           <widget class="QPushButton" name="paramsSetButton">
-            <property name="text">
-             <string>设置参数</string>
-            </property>
-            <property name="autoDefault">
-             <bool>false</bool>
-            </property>
-            <property name="default">
-             <bool>false</bool>
-            </property>
-            <property name="flat">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QGroupBox" name="groupBox_3">
-         <property name="font">
-          <font>
-           <family>阿里巴巴普惠体 2.0 55 Regular</family>
-           <pointsize>11</pointsize>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="title">
-          <string>操作面板</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox_runDis">
-            <property name="minimum">
-             <number>-10000000</number>
-            </property>
-            <property name="maximum">
-             <number>10000000</number>
-            </property>
-            <property name="value">
-             <number>1</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QToolButton" name="button_runDis">
-            <property name="text">
-             <string>GO</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>运行距离 (PPU)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="3">
-           <widget class="Line" name="line">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" colspan="3">
-           <widget class="QGroupBox" name="groupBox_4">
-            <property name="title">
-             <string>微调</string>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QToolButton" name="toolButton_3">
-               <property name="text">
-                <string>&lt;&lt;</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_4">
-               <property name="text">
-                <string>&lt;</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_5">
-               <property name="text">
-                <string>&gt;</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButton_6">
-               <property name="text">
-                <string>&gt;&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="2" rowspan="2">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
         <widget class="QGroupBox" name="groupBox_5">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="title">
-          <string>电机初始化</string>
+          <string>轴初始化</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>板卡ID：</string>
             </property>
@@ -471,27 +43,59 @@
           </item>
           <item row="0" column="1">
            <widget class="QLabel" name="label_cardID">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>未检测</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="pushButton">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>检测</string>
             </property>
            </widget>
           </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="QPushButton" name="pushButton_initAxis">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>初始化轴</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_12">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>轴：</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="1" column="1" colspan="2">
            <widget class="QComboBox" name="comboBox_axisID">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
             <item>
              <property name="text">
               <string>0</string>
@@ -524,48 +128,636 @@
             </item>
            </widget>
           </item>
-          <item row="2" column="0" colspan="3">
-           <widget class="QPushButton" name="pushButton_initAxis">
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei UI</family>
+           <pointsize>11</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>操作面板</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="text">
-             <string>初始化轴</string>
+             <string>运行距离 (PPU)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spinBox_runDis">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="minimum">
+             <number>-10000000</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="button_runDis">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>GO</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="3">
+           <widget class="QGroupBox" name="groupBox_4">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>手动调整</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QToolButton" name="toolButton_RevXCmove">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei UI</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>&lt;&lt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_RevXmove">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei UI</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>&lt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_stopMotor">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei UI</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>STOP</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_Xmove">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei UI</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButton_6">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei UI</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>&gt;&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="font">
+          <font>
+           <family>Microsoft YaHei UI</family>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>轴参数设置</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>PPU</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" colspan="3">
+           <widget class="QPushButton" name="paramsSetButton">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>设置参数</string>
+            </property>
+            <property name="autoDefault">
+             <bool>false</bool>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QSpinBox" name="spinBox_runningVel">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>PPU Denominator</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="2">
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>初速度</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>运行速度</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QSpinBox" name="spinBox_PPU">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QSpinBox" name="spinBox_acc">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>减速度</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QSpinBox" name="spinBox_PPUDenominator">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QSpinBox" name="spinBox_dec">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>1</width>
+              <height>1111</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QSpinBox" name="spinBox_initVel">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>10000000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QLabel" name="label_5">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>10</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>加速度</string>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="2" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="font">
           <font>
-           <family>阿里巴巴普惠体 2.0 55 Regular</family>
+           <family>Microsoft YaHei UI</family>
            <pointsize>11</pointsize>
            <bold>false</bold>
           </font>
          </property>
          <property name="title">
-          <string>电机状态信息</string>
+          <string>轴状态信息</string>
          </property>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_7">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label_11">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="text">
-             <string>运行状态</string>
+             <string>绝对位置：</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="lineEdit_runningStatus"/>
+          <item>
+           <widget class="QLabel" name="label_realPos">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
           </item>
-          <item row="1" column="0">
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="text">
-             <string>当前位置</string>
+             <string>命令位置：</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="lineEdit_nowPos"/>
+          <item>
+           <widget class="QLabel" name="label_cmdPos">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>运行状态：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_status">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Not opened</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -580,7 +772,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>805</width>
+     <width>688</width>
      <height>22</height>
     </rect>
    </property>
@@ -617,6 +809,9 @@
     <slot>motorRunDis()</slot>
     <slot>checkCard()</slot>
     <slot>initAxis()</slot>
+    <slot>motorRun()</slot>
+    <slot>motorRunRev()</slot>
+    <slot>motorStop()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -631,8 +826,8 @@
    <slot>setMotorParams()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>246</y>
+     <x>158</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>118</x>
@@ -647,11 +842,11 @@
    <slot>checkCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>750</x>
-     <y>93</y>
+     <x>302</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
-     <x>725</x>
+     <x>658</x>
      <y>124</y>
     </hint>
    </hints>
@@ -663,12 +858,140 @@
    <slot>initAxis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>645</x>
-     <y>146</y>
+     <x>216</x>
+     <y>158</y>
     </hint>
     <hint type="destinationlabel">
-     <x>645</x>
-     <y>26</y>
+     <x>654</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_runDis</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorRunDis()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>628</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_stopMotor</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>671</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_Xmove</sender>
+   <signal>pressed()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorRun()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>569</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>677</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_Xmove</sender>
+   <signal>released()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>567</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>677</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXmove</sender>
+   <signal>pressed()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorRunRev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXmove</sender>
+   <signal>released()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>675</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXCmove</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorRunRev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>675</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>motorRun()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>620</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>676</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>

@@ -46,6 +46,9 @@
     <ClCompile Include="MotorPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UpdateUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h">
@@ -54,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MotorPanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UpdateUI.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
