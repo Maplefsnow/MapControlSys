@@ -6,7 +6,10 @@
 #include "Axis.h"
 #include "AdvMotApi.h"
 #include "AdvMotDrv.h"
-#include "UpdateUI.h"
+#include "UpdateMotorPanelUI.h"
+#include "FAIORelay.h"
+
+#define RELAY_MOTOR_PORT 2
 
 class MotorPanel : public QWidget {
 	Q_OBJECT
@@ -21,7 +24,8 @@ public:
 	short axisID = 0;
 	Axis axis;
 
-	UpdateUI* updateUIThread;
+	UpdateMotorPanelUI* updateUIThread;
+	FAIORelay* relay;
 
 public:
 	Q_INVOKABLE void updateAxisCmdPos();

@@ -1,10 +1,10 @@
-#include "UpdateUI.h"
+#include "UpdateMotorPanelUI.h"
 
-UpdateUI::UpdateUI(QWidget* panel) {
+UpdateMotorPanelUI::UpdateMotorPanelUI(QWidget* panel) {
 	this->panel = panel;
 }
 
-void UpdateUI::run() {
+void UpdateMotorPanelUI::run() {
 	while (this->is_runnable) {
 		QMetaObject::invokeMethod(this->panel, "updateAxisCmdPos", Qt::AutoConnection);
 		QMetaObject::invokeMethod(this->panel, "updateStatus", Qt::AutoConnection);
@@ -12,6 +12,6 @@ void UpdateUI::run() {
 	}
 }
 
-void UpdateUI::stop() {
+void UpdateMotorPanelUI::stop() {
 	this->is_runnable = false;
 }

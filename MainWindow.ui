@@ -801,7 +801,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_6">
        <item row="0" column="0">
-        <widget class="QWidget" name="laserSensorWidget" native="true">
+        <widget class="LaserSensorPanel" name="laserSensorWidget" native="true">
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="0" column="0">
            <widget class="QCheckBox" name="checkBox_laserSensorSwitcher">
@@ -895,6 +895,15 @@
     <slot>axisReturnCmdZero()</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>LaserSensorPanel</class>
+   <extends>QWidget</extends>
+   <header>LaserSensorPanel.h</header>
+   <container>1</container>
+   <slots>
+    <slot>sensorSwitch(int)</slot>
+   </slots>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="MainWindow.qrc"/>
@@ -907,8 +916,8 @@
    <slot>setAxisParams()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>158</x>
-     <y>398</y>
+     <x>196</x>
+     <y>432</y>
     </hint>
     <hint type="destinationlabel">
      <x>118</x>
@@ -923,12 +932,12 @@
    <slot>checkCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>282</x>
-     <y>96</y>
+     <x>264</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>155</y>
+     <x>608</x>
+     <y>215</y>
     </hint>
    </hints>
   </connection>
@@ -939,12 +948,12 @@
    <slot>initAxis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>216</x>
-     <y>158</y>
+     <x>254</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>88</y>
+     <x>608</x>
+     <y>148</y>
     </hint>
    </hints>
   </connection>
@@ -955,12 +964,12 @@
    <slot>axisRunDis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>607</x>
-     <y>94</y>
+     <x>589</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
-     <x>544</x>
-     <y>35</y>
+     <x>563</x>
+     <y>95</y>
     </hint>
    </hints>
   </connection>
@@ -971,12 +980,12 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>483</x>
-     <y>291</y>
+     <x>465</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>294</y>
+     <x>608</x>
+     <y>354</y>
     </hint>
    </hints>
   </connection>
@@ -987,12 +996,12 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>527</x>
-     <y>291</y>
+     <x>509</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>271</y>
+     <x>608</x>
+     <y>331</y>
     </hint>
    </hints>
   </connection>
@@ -1003,12 +1012,12 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>527</x>
-     <y>291</y>
+     <x>509</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>269</y>
+     <x>608</x>
+     <y>329</y>
     </hint>
    </hints>
   </connection>
@@ -1019,12 +1028,12 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>291</y>
+     <x>393</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>320</y>
+     <x>608</x>
+     <y>380</y>
     </hint>
    </hints>
   </connection>
@@ -1035,12 +1044,12 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>291</y>
+     <x>393</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>337</y>
+     <x>608</x>
+     <y>397</y>
     </hint>
    </hints>
   </connection>
@@ -1051,12 +1060,12 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>367</x>
-     <y>291</y>
+     <x>349</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>360</y>
+     <x>608</x>
+     <y>420</y>
     </hint>
    </hints>
   </connection>
@@ -1067,12 +1076,12 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>582</x>
-     <y>291</y>
+     <x>564</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>626</x>
-     <y>252</y>
+     <x>608</x>
+     <y>312</y>
     </hint>
    </hints>
   </connection>
@@ -1083,12 +1092,12 @@
    <slot>setAxisZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>371</x>
-     <y>113</y>
+     <x>399</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
-     <x>370</x>
-     <y>31</y>
+     <x>389</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
@@ -1099,12 +1108,28 @@
    <slot>axisReturnCmdZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>502</x>
-     <y>114</y>
+     <x>589</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
-     <x>503</x>
-     <y>32</y>
+     <x>522</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_laserSensorSwitcher</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>laserSensorWidget</receiver>
+   <slot>sensorSwitch(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>673</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>

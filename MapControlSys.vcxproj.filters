@@ -46,7 +46,16 @@
     <ClCompile Include="MotorPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UpdateUI.cpp">
+    <ClCompile Include="UpdateMotorPanelUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserSensorPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FAIORelay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,12 +63,21 @@
     <ClInclude Include="Axis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LaserSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FAIORelay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MotorPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="UpdateUI.h">
+    <QtMoc Include="UpdateMotorPanelUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LaserSensorPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

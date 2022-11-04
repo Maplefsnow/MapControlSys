@@ -2,7 +2,7 @@
 #include "MainWindow.h"
 
 MotorPanel::MotorPanel(QWidget* widget) : QWidget(widget) {
-	this->updateUIThread = new UpdateUI(this);
+	this->updateUIThread = new UpdateMotorPanelUI(this);
 	this->updateUIThread->start();
 }
 

@@ -4,10 +4,10 @@
 #include <qdebug.h>
 #include <qwidget.h>
 
-class UpdateUI : public QThread {
+class UpdateMotorPanelUI : public QThread {
 	Q_OBJECT
 public:
-	UpdateUI(QWidget *);
+	UpdateMotorPanelUI(QWidget *);
 	QWidget* panel;
 	void stop();
 

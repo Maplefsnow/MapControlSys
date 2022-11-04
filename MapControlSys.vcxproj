@@ -55,8 +55,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\Qt6.3.2\6.3.2\msvc2019_arm64\include;D:\Advantech\Common Motion\Public</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);D:\Advantech\Common Motion\Public\X64</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\Qt6.3.2\6.3.2\msvc2019_arm64\include;E:\Maplef_Projects\CppProjects\MapControlSys\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);E:\Maplef_Projects\CppProjects\MapControlSys\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -98,8 +98,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FAIORelay.cpp" />
+    <ClCompile Include="LaserSensor.cpp" />
+    <ClCompile Include="LaserSensorPanel.cpp" />
     <ClCompile Include="MotorPanel.cpp" />
-    <ClCompile Include="UpdateUI.cpp" />
+    <ClCompile Include="UpdateMotorPanelUI.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui">
       <QtUicDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\</QtUicDir>
@@ -111,7 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h" />
-    <QtMoc Include="UpdateUI.h" />
+    <ClInclude Include="FAIORelay.h" />
+    <ClInclude Include="LaserSensor.h" />
+    <QtMoc Include="LaserSensorPanel.h" />
+    <QtMoc Include="UpdateMotorPanelUI.h" />
     <QtMoc Include="MotorPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
