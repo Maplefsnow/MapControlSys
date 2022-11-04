@@ -40,6 +40,10 @@ void Axis::contiMove(USHORT dir) {
 	throwError(Acm_AxMoveVel(this->hand, dir));
 }
 
+void Axis::returnCmdZero() {
+	throwError(Acm_AxMoveAbs(this->hand, 0.0));
+}
+
 void Axis::stop() {
 	throwError(Acm_AxStopDec(this->hand));
 }
@@ -72,12 +76,27 @@ void Axis::setPPU(ULONG i_PPU, ULONG denominator) {
 	this->PPUDenominator = denominator;
 }
 
-double Axis::getPPU() {
+void Axis::setCmdPos(DOUBLE pos) {
+	throwError(Acm_AxSetCmdPosition(this->hand, pos));
+	this->cmdPos = pos;
+}
+
+DOUBLE Axis::getPPU() {
 	return PPU / PPUDenominator;
 }
 
-double Axis::getCmdPos() {
+DOUBLE Axis::getCmdPos() {
+	if(this->hand == 0) return 0.0;
+
 	DOUBLE pos = 0.0;
 	throwError(Acm_AxGetCmdPosition(this->hand, &pos));
 	return pos;
+}
+
+U16 Axis::getAxisStatus() {
+	if (this->hand == 0) return 0;
+
+	U16 status = 0;
+	throwError(Acm_AxGetState(this->hand, &status));
+	return status;
 }

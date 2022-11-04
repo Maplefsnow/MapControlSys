@@ -1,19 +1,55 @@
 #include "MotorPanel.h"
 #include "MainWindow.h"
-#include "UpdateUI.h"
 
 MotorPanel::MotorPanel(QWidget* widget) : QWidget(widget) {
-	
+	this->updateUIThread = new UpdateUI(this);
+	this->updateUIThread->start();
 }
 
 MotorPanel::~MotorPanel() {
+	this->updateUIThread->stop();
+	this->updateUIThread->wait();
+	this->updateUIThread = nullptr;
 }
 
-void MotorPanel::updateAxisCmdPos() {
+Q_INVOKABLE void MotorPanel::updateAxisCmdPos() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
-	DOUBLE pos = this->axis.getCmdPos();
-	mainWindow->ui.label_cmdPos->setText(tr("%.3f").arg(pos));
+	try {
+		DOUBLE pos = this->axis.getCmdPos();
+		mainWindow->ui.label_cmdPos->setText(QString::number(pos, 'f', 4));
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.label_cmdPos->setText(errMsg);
+		return;
+	}
+}
+
+Q_INVOKABLE void MotorPanel::updateStatus() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	U16 status = 0;
+
+	try {
+		status = this->axis.getAxisStatus();
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.label_status->setText(errMsg);
+		return;
+	}
+
+	QString statusStr = "";
+
+	switch (status) {
+		case 0: statusStr = "Disabled"; break;
+		case 1: statusStr = "Ready"; break;
+		case 2: statusStr = "Stopping..."; break;
+		case 3: statusStr = "ERROR! Stopping..."; break;
+		case 4: case 5: case 6: case 7: statusStr = "Running..."; break;
+		default: break;
+	}
+
+	mainWindow->ui.label_status->setText(statusStr);
 }
 
 void MotorPanel::checkCard() {
@@ -29,7 +65,6 @@ void MotorPanel::checkCard() {
 
 	mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
 
-	UpdateUI *thread = new UpdateUI(this); thread->start();
 }
 
 void MotorPanel::initAxis() {
@@ -45,6 +80,7 @@ void MotorPanel::initAxis() {
 	USHORT axisID = mainWindow->ui.comboBox_axisID->currentIndex();
 	try {
 		this->axis = Axis::Axis(this->deviceHand, axisID);
+		this->axisID = axisID;
 	}
 	catch (const char *msg) {
 		mainWindow->ui.statusBar->showMessage(msg, 2000);
@@ -56,7 +92,7 @@ void MotorPanel::initAxis() {
 	mainWindow->ui.statusBar->showMessage(successMsg, 2000);
 }
 
-void MotorPanel::setMotorParams() {
+void MotorPanel::setAxisParams() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
 	if (this->deviceHand == 0) {
@@ -85,7 +121,7 @@ void MotorPanel::setMotorParams() {
 	mainWindow->ui.statusBar->showMessage("Params set success!", 2000);
 }
 
-void MotorPanel::motorRunDis() {
+void MotorPanel::axisRunDis() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
 	if (this->deviceHand == 0) {
@@ -98,14 +134,14 @@ void MotorPanel::motorRunDis() {
 	}
 
 	try {
-		this->axis.relMove(mainWindow->ui.spinBox_runDis->value());
+		this->axis.relMove(mainWindow->ui.doubleSpinBox_runDis->value());
 	}
 	catch (const char *errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
 	}
 }
 
-void MotorPanel::motorRun() {
+void MotorPanel::axisRun() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
 	if (this->deviceHand == 0) {
@@ -125,7 +161,7 @@ void MotorPanel::motorRun() {
 	}
 }
 
-void MotorPanel::motorRunRev() {
+void MotorPanel::axisRunRev() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
 	if (this->deviceHand == 0) {
@@ -145,7 +181,27 @@ void MotorPanel::motorRunRev() {
 	}
 }
 
-void MotorPanel::motorStop() {
+void MotorPanel::axisReturnCmdZero() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.returnCmdZero();
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::axisStop() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
 	if (this->deviceHand == 0) {
@@ -159,6 +215,26 @@ void MotorPanel::motorStop() {
 
 	try {
 		this->axis.stop();
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
+void MotorPanel::setAxisZero() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis.hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis.setCmdPos(0.0);
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);

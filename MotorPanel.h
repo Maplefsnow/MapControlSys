@@ -6,6 +6,7 @@
 #include "Axis.h"
 #include "AdvMotApi.h"
 #include "AdvMotDrv.h"
+#include "UpdateUI.h"
 
 class MotorPanel : public QWidget {
 	Q_OBJECT
@@ -16,18 +17,28 @@ public:
 
 	DWORD deviceNum = 0;
 	HAND deviceHand = 0;
+
+	short axisID = 0;
 	Axis axis;
 
+	UpdateUI* updateUIThread;
+
 public:
-	void updateAxisCmdPos();
+	Q_INVOKABLE void updateAxisCmdPos();
+	Q_INVOKABLE void updateStatus();
 
 public slots:
-	void initAxis();
 	void checkCard();
-	void setMotorParams();
-	void motorRunDis();
-	void motorRun();
-	void motorRunRev();
-	void motorStop();
+
+	void initAxis();
+	void setAxisParams();
+
+	void axisRunDis();
+	void axisRun();
+	void axisRunRev();
+	void axisReturnCmdZero();
+	void axisStop();
+
+	void setAxisZero();
 };
 
