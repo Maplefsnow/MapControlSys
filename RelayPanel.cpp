@@ -6,8 +6,8 @@ RelayPanel::RelayPanel(QWidget* parent)
 {
 }
 
-RelayPanel::~RelayPanel()
-{
+RelayPanel::~RelayPanel() {
+	this->relay.closeCard();
 }
 
 void RelayPanel::openCard() {
