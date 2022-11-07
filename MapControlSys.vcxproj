@@ -102,6 +102,7 @@
     <ClCompile Include="LaserSensor.cpp" />
     <ClCompile Include="LaserSensorPanel.cpp" />
     <ClCompile Include="MotorPanel.cpp" />
+    <ClCompile Include="RelayPanel.cpp" />
     <ClCompile Include="UpdateMotorPanelUI.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui">
@@ -116,6 +117,7 @@
     <ClInclude Include="Axis.h" />
     <ClInclude Include="FAIORelay.h" />
     <ClInclude Include="LaserSensor.h" />
+    <QtMoc Include="RelayPanel.h" />
     <QtMoc Include="LaserSensorPanel.h" />
     <QtMoc Include="UpdateMotorPanelUI.h" />
     <QtMoc Include="MotorPanel.h" />

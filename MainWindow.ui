@@ -6,16 +6,204 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>852</width>
-    <height>556</height>
+    <width>652</width>
+    <height>681</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MapContorlSys - 枫控</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_9">
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>继电器控制面板</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="RelayPanel" name="relayWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>板卡号：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_relayCards">
+              <item>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>3</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>4</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_openRelayCards">
+              <property name="text">
+               <string>打开板卡</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QCheckBox" name="checkBox_axis0Switcher">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>电机轴0</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
+              <property name="tristate">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_laserSensorSwitcher">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>激光传感器</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
+              <property name="tristate">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_airValveSwitcher">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>气阀</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
+              <property name="tristate">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>激光传感器面板</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="LaserSensorPanel" name="laserSensorWidget" native="true">
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_laserSensorDis">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_laserSensorVoltage">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>电压值 (V)：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>距离 (mm)：</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
      <widget class="QGroupBox" name="groupBox_Motor">
       <property name="font">
        <font>
@@ -789,61 +977,6 @@
       </layout>
      </widget>
     </item>
-    <item>
-     <widget class="QGroupBox" name="groupBox_6">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="title">
-       <string>激光传感器面板</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_6">
-       <item row="0" column="0">
-        <widget class="LaserSensorPanel" name="laserSensorWidget" native="true">
-         <layout class="QGridLayout" name="gridLayout_7">
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="checkBox_laserSensorSwitcher">
-            <property name="text">
-             <string>开关</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_13">
-            <property name="text">
-             <string>电压值 (V)：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_laserSensorVoltage">
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_14">
-            <property name="text">
-             <string>距离 (mm)：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_laserSensorDis">
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -851,7 +984,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>852</width>
+     <width>652</width>
      <height>22</height>
     </rect>
    </property>
@@ -904,6 +1037,18 @@
     <slot>sensorSwitch(int)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>RelayPanel</class>
+   <extends>QWidget</extends>
+   <header>RelayPanel.h</header>
+   <container>1</container>
+   <slots>
+    <slot>openCard()</slot>
+    <slot>airValveSwitcher(int)</slot>
+    <slot>motorSwitcher(int)</slot>
+    <slot>laserSensorSwitcher(int)</slot>
+   </slots>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="MainWindow.qrc"/>
@@ -916,12 +1061,12 @@
    <slot>setAxisParams()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>196</x>
-     <y>432</y>
+     <x>234</x>
+     <y>557</y>
     </hint>
     <hint type="destinationlabel">
-     <x>118</x>
-     <y>297</y>
+     <x>138</x>
+     <y>638</y>
     </hint>
    </hints>
   </connection>
@@ -932,12 +1077,12 @@
    <slot>checkCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>125</y>
+     <x>283</x>
+     <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>608</x>
-     <y>215</y>
+     <x>609</x>
+     <y>556</y>
     </hint>
    </hints>
   </connection>
@@ -948,12 +1093,12 @@
    <slot>initAxis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>254</x>
-     <y>191</y>
+     <x>264</x>
+     <y>316</y>
     </hint>
     <hint type="destinationlabel">
-     <x>608</x>
-     <y>148</y>
+     <x>609</x>
+     <y>489</y>
     </hint>
    </hints>
   </connection>
@@ -964,12 +1109,12 @@
    <slot>axisRunDis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>589</x>
-     <y>123</y>
+     <x>613</x>
+     <y>248</y>
     </hint>
     <hint type="destinationlabel">
-     <x>563</x>
-     <y>95</y>
+     <x>583</x>
+     <y>436</y>
     </hint>
    </hints>
   </connection>
@@ -980,8 +1125,8 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>465</x>
-     <y>320</y>
+     <x>489</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
@@ -996,12 +1141,12 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>509</x>
-     <y>320</y>
+     <x>533</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
-     <y>331</y>
+     <y>556</y>
     </hint>
    </hints>
   </connection>
@@ -1012,12 +1157,12 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>509</x>
-     <y>320</y>
+     <x>533</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
-     <y>329</y>
+     <y>554</y>
     </hint>
    </hints>
   </connection>
@@ -1028,8 +1173,8 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>393</x>
-     <y>320</y>
+     <x>417</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
@@ -1044,8 +1189,8 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>393</x>
-     <y>320</y>
+     <x>417</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
@@ -1060,8 +1205,8 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>349</x>
-     <y>320</y>
+     <x>373</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
@@ -1076,12 +1221,12 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>320</y>
+     <x>588</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
      <x>608</x>
-     <y>312</y>
+     <y>537</y>
     </hint>
    </hints>
   </connection>
@@ -1092,12 +1237,12 @@
    <slot>setAxisZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>157</y>
+     <x>423</x>
+     <y>282</y>
     </hint>
     <hint type="destinationlabel">
-     <x>389</x>
-     <y>91</y>
+     <x>409</x>
+     <y>432</y>
     </hint>
    </hints>
   </connection>
@@ -1108,28 +1253,76 @@
    <slot>axisReturnCmdZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>589</x>
-     <y>157</y>
+     <x>613</x>
+     <y>282</y>
     </hint>
     <hint type="destinationlabel">
-     <x>522</x>
-     <y>92</y>
+     <x>542</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_openRelayCards</sender>
+   <signal>clicked()</signal>
+   <receiver>relayWidget</receiver>
+   <slot>openCard()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>265</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_axis0Switcher</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>relayWidget</receiver>
+   <slot>motorSwitcher(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>65</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>checkBox_laserSensorSwitcher</sender>
    <signal>stateChanged(int)</signal>
-   <receiver>laserSensorWidget</receiver>
-   <slot>sensorSwitch(int)</slot>
+   <receiver>relayWidget</receiver>
+   <slot>laserSensorSwitcher(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>78</y>
+     <x>165</x>
+     <y>118</y>
     </hint>
     <hint type="destinationlabel">
-     <x>679</x>
-     <y>64</y>
+     <x>167</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_airValveSwitcher</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>relayWidget</receiver>
+   <slot>airValveSwitcher(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>241</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>63</y>
     </hint>
    </hints>
   </connection>

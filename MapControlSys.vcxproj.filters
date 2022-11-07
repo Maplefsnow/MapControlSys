@@ -58,6 +58,9 @@
     <ClCompile Include="FAIORelay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RelayPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="LaserSensorPanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RelayPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

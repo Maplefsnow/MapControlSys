@@ -1,5 +1,6 @@
 #include "MotorPanel.h"
 #include "MainWindow.h"
+#include "FAIORelay.h"
 
 MotorPanel::MotorPanel(QWidget* widget) : QWidget(widget) {
 	this->updateUIThread = new UpdateMotorPanelUI(this);
@@ -64,7 +65,6 @@ void MotorPanel::checkCard() {
 	sprintf(deviceNumStr, "0x%x", deviceNum);
 
 	mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
-
 }
 
 void MotorPanel::initAxis() {

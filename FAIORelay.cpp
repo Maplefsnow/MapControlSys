@@ -4,7 +4,7 @@
 #define throwError(x) \
 	er = x;\
 	if(er != FAIO_ERROR_SUCCESS){\
-		throw er;\
+		throw this->getErrorMsg(er);\
 		er = FAIO_ERROR_SUCCESS;\
 		return;\
 	}
@@ -20,6 +20,11 @@ FAIORelay::FAIORelay(short com) {
 }
 
 FAIORelay::~FAIORelay() {
+}
+
+void FAIORelay::openCard(short com) {
+	this->com = com;
+	throwError(iob_board_init(com, 0x00));
 }
 
 void FAIORelay::onPort(short port) {
@@ -41,6 +46,20 @@ int FAIORelay::getPortStatus(short port) {
 		throw status;
 		return -1;
 	}
+}
+
+QString FAIORelay::getErrorMsg(IOBERROR err) {
+	QString errStr;
+
+	switch (err) {
+		case -2: errStr = "Board init failed!"; break;
+		case -3: errStr = "Unavailable board!"; break;
+		case -4: errStr = "Board is not initialized!"; break;
+		case -5: errStr = "Board is disconnected!"; break;
+		default: break;
+	}
+
+	return errStr;
 }
 
 

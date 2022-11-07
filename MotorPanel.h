@@ -9,8 +9,6 @@
 #include "UpdateMotorPanelUI.h"
 #include "FAIORelay.h"
 
-#define RELAY_MOTOR_PORT 2
-
 class MotorPanel : public QWidget {
 	Q_OBJECT
 
@@ -25,7 +23,6 @@ public:
 	Axis axis;
 
 	UpdateMotorPanelUI* updateUIThread;
-	FAIORelay* relay;
 
 public:
 	Q_INVOKABLE void updateAxisCmdPos();

@@ -48,7 +48,12 @@ void Axis::stop() {
 	throwError(Acm_AxStopDec(this->hand));
 }
 
-void Axis::setVelParams(DOUBLE i_initVel, DOUBLE i_runningVel, DOUBLE i_acc, DOUBLE i_dec, DOUBLE mode) {	
+void Axis::setVelParams(DOUBLE i_initVel, DOUBLE i_runningVel, DOUBLE i_acc, DOUBLE i_dec, DOUBLE mode) {
+	if (i_initVel > i_runningVel) {
+		throw "ERROR! Initial velocity must be less than running velocity!";
+		return ;
+	}
+
 	throwError(Acm_SetF64Property(hand, PAR_AxVelLow, i_initVel));
 	throwError(Acm_SetF64Property(hand, PAR_AxVelHigh, i_runningVel));
 	throwError(Acm_SetF64Property(hand, PAR_AxAcc, i_acc));

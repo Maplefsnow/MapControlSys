@@ -27,9 +27,11 @@
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "LaserSensorPanel.h"
 #include "MotorPanel.h"
+#include "RelayPanel.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -39,7 +41,27 @@ public:
     QAction *actionOpen_Image;
     QAction *actionSave_Image;
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout_9;
+    QGroupBox *groupBox_8;
+    QVBoxLayout *verticalLayout_2;
+    RelayPanel *relayWidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *label_17;
+    QComboBox *comboBox_relayCards;
+    QPushButton *pushButton_openRelayCards;
+    QHBoxLayout *horizontalLayout_6;
+    QCheckBox *checkBox_axis0Switcher;
+    QCheckBox *checkBox_laserSensorSwitcher;
+    QCheckBox *checkBox_airValveSwitcher;
+    QGroupBox *groupBox_6;
+    QGridLayout *gridLayout_6;
+    LaserSensorPanel *laserSensorWidget;
+    QGridLayout *gridLayout_7;
+    QLabel *label_laserSensorDis;
+    QLabel *label_laserSensorVoltage;
+    QLabel *label_13;
+    QLabel *label_14;
     QGroupBox *groupBox_Motor;
     QGridLayout *gridLayout_4;
     MotorPanel *motorWidget;
@@ -91,15 +113,6 @@ public:
     QToolButton *toolButton_stopMotor;
     QToolButton *toolButton_Xmove;
     QToolButton *toolButton_6;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_6;
-    LaserSensorPanel *laserSensorWidget;
-    QGridLayout *gridLayout_7;
-    QCheckBox *checkBox_laserSensorSwitcher;
-    QLabel *label_13;
-    QLabel *label_laserSensorVoltage;
-    QLabel *label_14;
-    QLabel *label_laserSensorDis;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QStatusBar *statusBar;
@@ -108,21 +121,139 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
-        MainWindowClass->resize(852, 556);
+        MainWindowClass->resize(652, 681);
         actionOpen_Image = new QAction(MainWindowClass);
         actionOpen_Image->setObjectName(QString::fromUtf8("actionOpen_Image"));
         actionSave_Image = new QAction(MainWindowClass);
         actionSave_Image->setObjectName(QString::fromUtf8("actionSave_Image"));
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        horizontalLayout = new QHBoxLayout(centralWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        groupBox_Motor = new QGroupBox(centralWidget);
-        groupBox_Motor->setObjectName(QString::fromUtf8("groupBox_Motor"));
+        gridLayout_9 = new QGridLayout(centralWidget);
+        gridLayout_9->setSpacing(6);
+        gridLayout_9->setContentsMargins(11, 11, 11, 11);
+        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
+        groupBox_8 = new QGroupBox(centralWidget);
+        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
         QFont font;
         font.setPointSize(11);
+        groupBox_8->setFont(font);
+        verticalLayout_2 = new QVBoxLayout(groupBox_8);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        relayWidget = new RelayPanel(groupBox_8);
+        relayWidget->setObjectName(QString::fromUtf8("relayWidget"));
+        verticalLayout = new QVBoxLayout(relayWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        label_17 = new QLabel(relayWidget);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+
+        horizontalLayout_7->addWidget(label_17);
+
+        comboBox_relayCards = new QComboBox(relayWidget);
+        comboBox_relayCards->addItem(QString());
+        comboBox_relayCards->addItem(QString());
+        comboBox_relayCards->addItem(QString());
+        comboBox_relayCards->addItem(QString());
+        comboBox_relayCards->addItem(QString());
+        comboBox_relayCards->setObjectName(QString::fromUtf8("comboBox_relayCards"));
+
+        horizontalLayout_7->addWidget(comboBox_relayCards);
+
+        pushButton_openRelayCards = new QPushButton(relayWidget);
+        pushButton_openRelayCards->setObjectName(QString::fromUtf8("pushButton_openRelayCards"));
+
+        horizontalLayout_7->addWidget(pushButton_openRelayCards);
+
+
+        verticalLayout->addLayout(horizontalLayout_7);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        checkBox_axis0Switcher = new QCheckBox(relayWidget);
+        checkBox_axis0Switcher->setObjectName(QString::fromUtf8("checkBox_axis0Switcher"));
+        checkBox_axis0Switcher->setEnabled(false);
+        checkBox_axis0Switcher->setIconSize(QSize(16, 16));
+        checkBox_axis0Switcher->setCheckable(true);
+        checkBox_axis0Switcher->setAutoRepeat(false);
+        checkBox_axis0Switcher->setTristate(false);
+
+        horizontalLayout_6->addWidget(checkBox_axis0Switcher);
+
+        checkBox_laserSensorSwitcher = new QCheckBox(relayWidget);
+        checkBox_laserSensorSwitcher->setObjectName(QString::fromUtf8("checkBox_laserSensorSwitcher"));
+        checkBox_laserSensorSwitcher->setEnabled(false);
+        checkBox_laserSensorSwitcher->setIconSize(QSize(16, 16));
+        checkBox_laserSensorSwitcher->setAutoRepeat(false);
+        checkBox_laserSensorSwitcher->setTristate(false);
+
+        horizontalLayout_6->addWidget(checkBox_laserSensorSwitcher);
+
+        checkBox_airValveSwitcher = new QCheckBox(relayWidget);
+        checkBox_airValveSwitcher->setObjectName(QString::fromUtf8("checkBox_airValveSwitcher"));
+        checkBox_airValveSwitcher->setEnabled(false);
+        checkBox_airValveSwitcher->setIconSize(QSize(16, 16));
+        checkBox_airValveSwitcher->setAutoRepeat(false);
+        checkBox_airValveSwitcher->setTristate(false);
+
+        horizontalLayout_6->addWidget(checkBox_airValveSwitcher);
+
+
+        verticalLayout->addLayout(horizontalLayout_6);
+
+
+        verticalLayout_2->addWidget(relayWidget);
+
+
+        gridLayout_9->addWidget(groupBox_8, 0, 0, 1, 1);
+
+        groupBox_6 = new QGroupBox(centralWidget);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        groupBox_6->setFont(font);
+        gridLayout_6 = new QGridLayout(groupBox_6);
+        gridLayout_6->setSpacing(6);
+        gridLayout_6->setContentsMargins(11, 11, 11, 11);
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        laserSensorWidget = new LaserSensorPanel(groupBox_6);
+        laserSensorWidget->setObjectName(QString::fromUtf8("laserSensorWidget"));
+        gridLayout_7 = new QGridLayout(laserSensorWidget);
+        gridLayout_7->setSpacing(6);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
+        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
+        label_laserSensorDis = new QLabel(laserSensorWidget);
+        label_laserSensorDis->setObjectName(QString::fromUtf8("label_laserSensorDis"));
+
+        gridLayout_7->addWidget(label_laserSensorDis, 1, 1, 1, 1);
+
+        label_laserSensorVoltage = new QLabel(laserSensorWidget);
+        label_laserSensorVoltage->setObjectName(QString::fromUtf8("label_laserSensorVoltage"));
+
+        gridLayout_7->addWidget(label_laserSensorVoltage, 0, 1, 1, 1);
+
+        label_13 = new QLabel(laserSensorWidget);
+        label_13->setObjectName(QString::fromUtf8("label_13"));
+
+        gridLayout_7->addWidget(label_13, 0, 0, 1, 1);
+
+        label_14 = new QLabel(laserSensorWidget);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+
+        gridLayout_7->addWidget(label_14, 1, 0, 1, 1);
+
+
+        gridLayout_6->addWidget(laserSensorWidget, 0, 0, 1, 1);
+
+
+        gridLayout_9->addWidget(groupBox_6, 0, 1, 1, 1);
+
+        groupBox_Motor = new QGroupBox(centralWidget);
+        groupBox_Motor->setObjectName(QString::fromUtf8("groupBox_Motor"));
         groupBox_Motor->setFont(font);
         gridLayout_4 = new QGridLayout(groupBox_Motor);
         gridLayout_4->setSpacing(6);
@@ -484,56 +615,12 @@ public:
         gridLayout_4->addWidget(motorWidget, 0, 0, 1, 1);
 
 
-        horizontalLayout->addWidget(groupBox_Motor);
-
-        groupBox_6 = new QGroupBox(centralWidget);
-        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setFont(font);
-        gridLayout_6 = new QGridLayout(groupBox_6);
-        gridLayout_6->setSpacing(6);
-        gridLayout_6->setContentsMargins(11, 11, 11, 11);
-        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
-        laserSensorWidget = new LaserSensorPanel(groupBox_6);
-        laserSensorWidget->setObjectName(QString::fromUtf8("laserSensorWidget"));
-        gridLayout_7 = new QGridLayout(laserSensorWidget);
-        gridLayout_7->setSpacing(6);
-        gridLayout_7->setContentsMargins(11, 11, 11, 11);
-        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
-        checkBox_laserSensorSwitcher = new QCheckBox(laserSensorWidget);
-        checkBox_laserSensorSwitcher->setObjectName(QString::fromUtf8("checkBox_laserSensorSwitcher"));
-
-        gridLayout_7->addWidget(checkBox_laserSensorSwitcher, 0, 0, 1, 1);
-
-        label_13 = new QLabel(laserSensorWidget);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-
-        gridLayout_7->addWidget(label_13, 1, 0, 1, 1);
-
-        label_laserSensorVoltage = new QLabel(laserSensorWidget);
-        label_laserSensorVoltage->setObjectName(QString::fromUtf8("label_laserSensorVoltage"));
-
-        gridLayout_7->addWidget(label_laserSensorVoltage, 1, 1, 1, 1);
-
-        label_14 = new QLabel(laserSensorWidget);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-
-        gridLayout_7->addWidget(label_14, 2, 0, 1, 1);
-
-        label_laserSensorDis = new QLabel(laserSensorWidget);
-        label_laserSensorDis->setObjectName(QString::fromUtf8("label_laserSensorDis"));
-
-        gridLayout_7->addWidget(label_laserSensorDis, 2, 1, 1, 1);
-
-
-        gridLayout_6->addWidget(laserSensorWidget, 0, 0, 1, 1);
-
-
-        horizontalLayout->addWidget(groupBox_6);
+        gridLayout_9->addWidget(groupBox_Motor, 1, 0, 1, 2);
 
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 852, 22));
+        menuBar->setGeometry(QRect(0, 0, 652, 22));
         menuMenu = new QMenu(menuBar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
         MainWindowClass->setMenuBar(menuBar);
@@ -559,7 +646,10 @@ public:
         QObject::connect(toolButton_6, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRun));
         QObject::connect(pushButton_setAxisZero, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::setAxisZero));
         QObject::connect(pushButton_axisReturnHome, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisReturnCmdZero));
-        QObject::connect(checkBox_laserSensorSwitcher, SIGNAL(stateChanged(int)), laserSensorWidget, SLOT(sensorSwitch(int)));
+        QObject::connect(pushButton_openRelayCards, &QPushButton::clicked, relayWidget, qOverload<>(&RelayPanel::openCard));
+        QObject::connect(checkBox_axis0Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(motorSwitcher(int)));
+        QObject::connect(checkBox_laserSensorSwitcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(laserSensorSwitcher(int)));
+        QObject::connect(checkBox_airValveSwitcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(airValveSwitcher(int)));
 
         paramsSetButton->setDefault(false);
 
@@ -572,6 +662,23 @@ public:
         MainWindowClass->setWindowTitle(QCoreApplication::translate("MainWindowClass", "MapContorlSys - \346\236\253\346\216\247", nullptr));
         actionOpen_Image->setText(QCoreApplication::translate("MainWindowClass", "Open Image...", nullptr));
         actionSave_Image->setText(QCoreApplication::translate("MainWindowClass", "Save Image", nullptr));
+        groupBox_8->setTitle(QCoreApplication::translate("MainWindowClass", "\347\273\247\347\224\265\345\231\250\346\216\247\345\210\266\351\235\242\346\235\277", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindowClass", "\346\235\277\345\215\241\345\217\267\357\274\232", nullptr));
+        comboBox_relayCards->setItemText(0, QCoreApplication::translate("MainWindowClass", "0", nullptr));
+        comboBox_relayCards->setItemText(1, QCoreApplication::translate("MainWindowClass", "1", nullptr));
+        comboBox_relayCards->setItemText(2, QCoreApplication::translate("MainWindowClass", "2", nullptr));
+        comboBox_relayCards->setItemText(3, QCoreApplication::translate("MainWindowClass", "3", nullptr));
+        comboBox_relayCards->setItemText(4, QCoreApplication::translate("MainWindowClass", "4", nullptr));
+
+        pushButton_openRelayCards->setText(QCoreApplication::translate("MainWindowClass", "\346\211\223\345\274\200\346\235\277\345\215\241", nullptr));
+        checkBox_axis0Switcher->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\350\275\2640", nullptr));
+        checkBox_laserSensorSwitcher->setText(QCoreApplication::translate("MainWindowClass", "\346\277\200\345\205\211\344\274\240\346\204\237\345\231\250", nullptr));
+        checkBox_airValveSwitcher->setText(QCoreApplication::translate("MainWindowClass", "\346\260\224\351\230\200", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("MainWindowClass", "\346\277\200\345\205\211\344\274\240\346\204\237\345\231\250\351\235\242\346\235\277", nullptr));
+        label_laserSensorDis->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
+        label_laserSensorVoltage->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\345\216\213\345\200\274 (V)\357\274\232", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindowClass", "\350\267\235\347\246\273 (mm)\357\274\232", nullptr));
         groupBox_Motor->setTitle(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\346\216\247\345\210\266\351\235\242\346\235\277", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindowClass", "\350\275\264\345\217\202\346\225\260\350\256\276\347\275\256", nullptr));
         label->setText(QCoreApplication::translate("MainWindowClass", "PPU", nullptr));
@@ -612,12 +719,6 @@ public:
         toolButton_stopMotor->setText(QCoreApplication::translate("MainWindowClass", "STOP", nullptr));
         toolButton_Xmove->setText(QCoreApplication::translate("MainWindowClass", ">", nullptr));
         toolButton_6->setText(QCoreApplication::translate("MainWindowClass", ">>", nullptr));
-        groupBox_6->setTitle(QCoreApplication::translate("MainWindowClass", "\346\277\200\345\205\211\344\274\240\346\204\237\345\231\250\351\235\242\346\235\277", nullptr));
-        checkBox_laserSensorSwitcher->setText(QCoreApplication::translate("MainWindowClass", "\345\274\200\345\205\263", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\345\216\213\345\200\274 (V)\357\274\232", nullptr));
-        label_laserSensorVoltage->setText(QCoreApplication::translate("MainWindowClass", "TextLabel", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindowClass", "\350\267\235\347\246\273 (mm)\357\274\232", nullptr));
-        label_laserSensorDis->setText(QCoreApplication::translate("MainWindowClass", "TextLabel", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("MainWindowClass", "Menu", nullptr));
     } // retranslateUi
 

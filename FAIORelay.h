@@ -1,6 +1,8 @@
 #pragma once
 
 #include <FAIO.h>
+#include <qstring.h>
+
 #ifndef _WIN64
 #pragma comment(lib, "FAIO.lib")
 #else
@@ -13,14 +15,16 @@ public:
 	FAIORelay(short);
 	~FAIORelay();
 
-	void onPort(short);
-	void offPort(short);
+	void openCard(short com);
+	void onPort(short port);
+	void offPort(short port);
 	void closeCard();
 
-	int getPortStatus(short);
+	int getPortStatus(short port);
 
+	QString getErrorMsg(IOBERROR err);
+	
 private:
 	short com = 0;
-
 };
 

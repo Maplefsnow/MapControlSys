@@ -15,11 +15,5 @@ public:
 
 public:
 	Q_INVOKABLE void updateUI();
-
-private:
-	FAIORelay* relay;
-
-public slots:
-	void sensorSwitch(int);
 };
 
