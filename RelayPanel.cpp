@@ -18,12 +18,14 @@ void RelayPanel::openCard() {
 		this->relay.openCard(cardID);
 		mainWindow->ui.checkBox_airValveSwitcher->setEnabled(true);
 		mainWindow->ui.checkBox_axis0Switcher->setEnabled(true);
+		mainWindow->ui.checkBox_axis1Switcher->setEnabled(true);
 		mainWindow->ui.checkBox_laserSensorSwitcher->setEnabled(true);
 	}
 	catch (const QString errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
 		mainWindow->ui.checkBox_airValveSwitcher->setEnabled(false);
 		mainWindow->ui.checkBox_axis0Switcher->setEnabled(false);
+		mainWindow->ui.checkBox_axis1Switcher->setEnabled(false);
 		mainWindow->ui.checkBox_laserSensorSwitcher->setEnabled(false);
 		return;
 	}
@@ -41,12 +43,21 @@ void RelayPanel::airValveSwitcher(int status) {
 	}
 }
 
-void RelayPanel::motorSwitcher(int status) {
+void RelayPanel::axis0Switcher(int status) {
 	if (status == 2) {
 		this->relay.onPort(AXIS_0_PORT);
 	}
 	else {
 		this->relay.offPort(AXIS_0_PORT);
+	}
+}
+
+void RelayPanel::axis1Switcher(int status) {
+	if (status == 2) {
+		this->relay.onPort(AXIS_1_PORT);
+	}
+	else {
+		this->relay.offPort(AXIS_1_PORT);
 	}
 }
 

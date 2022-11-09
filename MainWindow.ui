@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
+    <width>818</width>
     <height>681</height>
    </rect>
   </property>
@@ -104,6 +104,16 @@
              </widget>
             </item>
             <item>
+             <widget class="QCheckBox" name="checkBox_axis1Switcher">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>电机轴1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QCheckBox" name="checkBox_laserSensorSwitcher">
               <property name="enabled">
                <bool>false</bool>
@@ -193,7 +203,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_14">
             <property name="text">
-             <string>距离 (mm)：</string>
+             <string>距离 (μm)：</string>
             </property>
            </widget>
           </item>
@@ -984,7 +994,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>652</width>
+     <width>818</width>
      <height>22</height>
     </rect>
    </property>
@@ -1026,6 +1036,7 @@
     <slot>axisStop()</slot>
     <slot>setAxisZero()</slot>
     <slot>axisReturnCmdZero()</slot>
+    <slot>panelParamsUpdate(int)</slot>
    </slots>
   </customwidget>
   <customwidget>
@@ -1045,8 +1056,9 @@
    <slots>
     <slot>openCard()</slot>
     <slot>airValveSwitcher(int)</slot>
-    <slot>motorSwitcher(int)</slot>
+    <slot>axis0Switcher(int)</slot>
     <slot>laserSensorSwitcher(int)</slot>
+    <slot>axis1Switcher(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -1109,7 +1121,7 @@
    <slot>axisRunDis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>613</x>
+     <x>779</x>
      <y>248</y>
     </hint>
     <hint type="destinationlabel">
@@ -1125,7 +1137,7 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>489</x>
+     <x>626</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1141,7 +1153,7 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>533</x>
+     <x>680</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1157,7 +1169,7 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>533</x>
+     <x>680</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1173,7 +1185,7 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>417</x>
+     <x>544</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1189,7 +1201,7 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>417</x>
+     <x>544</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1205,7 +1217,7 @@
    <slot>axisRunRev()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>373</x>
+     <x>490</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1221,7 +1233,7 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>588</x>
+     <x>745</x>
      <y>445</y>
     </hint>
     <hint type="destinationlabel">
@@ -1269,28 +1281,12 @@
    <slot>openCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>265</x>
-     <y>78</y>
+     <x>385</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
      <x>264</x>
      <y>64</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_axis0Switcher</sender>
-   <signal>stateChanged(int)</signal>
-   <receiver>relayWidget</receiver>
-   <slot>motorSwitcher(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>68</x>
-     <y>115</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>67</x>
-     <y>65</y>
     </hint>
    </hints>
   </connection>
@@ -1301,8 +1297,8 @@
    <slot>laserSensorSwitcher(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>165</x>
-     <y>118</y>
+     <x>299</x>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
      <x>167</x>
@@ -1317,12 +1313,60 @@
    <slot>airValveSwitcher(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>241</x>
-     <y>117</y>
+     <x>385</x>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
      <x>242</x>
      <y>63</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_axisID</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>motorWidget</receiver>
+   <slot>panelParamsUpdate(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>196</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_axis0Switcher</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>relayWidget</receiver>
+   <slot>axis0Switcher(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>66</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_axis1Switcher</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>relayWidget</receiver>
+   <slot>axis1Switcher(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>142</x>
+     <y>62</y>
     </hint>
    </hints>
   </connection>

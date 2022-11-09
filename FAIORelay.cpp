@@ -36,6 +36,7 @@ void FAIORelay::offPort(short port) {
 }
 
 void FAIORelay::closeCard() {
+	if(this->com == -1) return;
 	throwError(iob_board_close(this->com, false));
 }
 

@@ -5,6 +5,7 @@
 
 #define AIRVALVE_PORT 1
 #define AXIS_0_PORT 3
+#define AXIS_1_PORT 4
 #define LASERSENSOR_PORT 2
 
 class RelayPanel : public QWidget {
@@ -21,7 +22,8 @@ private:
 public slots:
 	void openCard();
 	void airValveSwitcher(int status);
-	void motorSwitcher(int status);
+	void axis0Switcher(int status);
+	void axis1Switcher(int status);
 	void laserSensorSwitcher(int status);
 };
 

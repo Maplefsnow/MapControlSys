@@ -52,6 +52,7 @@ public:
     QPushButton *pushButton_openRelayCards;
     QHBoxLayout *horizontalLayout_6;
     QCheckBox *checkBox_axis0Switcher;
+    QCheckBox *checkBox_axis1Switcher;
     QCheckBox *checkBox_laserSensorSwitcher;
     QCheckBox *checkBox_airValveSwitcher;
     QGroupBox *groupBox_6;
@@ -121,7 +122,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
-        MainWindowClass->resize(652, 681);
+        MainWindowClass->resize(818, 681);
         actionOpen_Image = new QAction(MainWindowClass);
         actionOpen_Image->setObjectName(QString::fromUtf8("actionOpen_Image"));
         actionSave_Image = new QAction(MainWindowClass);
@@ -185,6 +186,12 @@ public:
         checkBox_axis0Switcher->setTristate(false);
 
         horizontalLayout_6->addWidget(checkBox_axis0Switcher);
+
+        checkBox_axis1Switcher = new QCheckBox(relayWidget);
+        checkBox_axis1Switcher->setObjectName(QString::fromUtf8("checkBox_axis1Switcher"));
+        checkBox_axis1Switcher->setEnabled(false);
+
+        horizontalLayout_6->addWidget(checkBox_axis1Switcher);
 
         checkBox_laserSensorSwitcher = new QCheckBox(relayWidget);
         checkBox_laserSensorSwitcher->setObjectName(QString::fromUtf8("checkBox_laserSensorSwitcher"));
@@ -620,7 +627,7 @@ public:
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 652, 22));
+        menuBar->setGeometry(QRect(0, 0, 818, 22));
         menuMenu = new QMenu(menuBar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
         MainWindowClass->setMenuBar(menuBar);
@@ -647,9 +654,11 @@ public:
         QObject::connect(pushButton_setAxisZero, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::setAxisZero));
         QObject::connect(pushButton_axisReturnHome, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisReturnCmdZero));
         QObject::connect(pushButton_openRelayCards, &QPushButton::clicked, relayWidget, qOverload<>(&RelayPanel::openCard));
-        QObject::connect(checkBox_axis0Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(motorSwitcher(int)));
         QObject::connect(checkBox_laserSensorSwitcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(laserSensorSwitcher(int)));
         QObject::connect(checkBox_airValveSwitcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(airValveSwitcher(int)));
+        QObject::connect(comboBox_axisID, SIGNAL(currentIndexChanged(int)), motorWidget, SLOT(panelParamsUpdate(int)));
+        QObject::connect(checkBox_axis0Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(axis0Switcher(int)));
+        QObject::connect(checkBox_axis1Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(axis1Switcher(int)));
 
         paramsSetButton->setDefault(false);
 
@@ -672,13 +681,14 @@ public:
 
         pushButton_openRelayCards->setText(QCoreApplication::translate("MainWindowClass", "\346\211\223\345\274\200\346\235\277\345\215\241", nullptr));
         checkBox_axis0Switcher->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\350\275\2640", nullptr));
+        checkBox_axis1Switcher->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\350\275\2641", nullptr));
         checkBox_laserSensorSwitcher->setText(QCoreApplication::translate("MainWindowClass", "\346\277\200\345\205\211\344\274\240\346\204\237\345\231\250", nullptr));
         checkBox_airValveSwitcher->setText(QCoreApplication::translate("MainWindowClass", "\346\260\224\351\230\200", nullptr));
         groupBox_6->setTitle(QCoreApplication::translate("MainWindowClass", "\346\277\200\345\205\211\344\274\240\346\204\237\345\231\250\351\235\242\346\235\277", nullptr));
         label_laserSensorDis->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
         label_laserSensorVoltage->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\345\216\213\345\200\274 (V)\357\274\232", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindowClass", "\350\267\235\347\246\273 (mm)\357\274\232", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindowClass", "\350\267\235\347\246\273 (\316\274m)\357\274\232", nullptr));
         groupBox_Motor->setTitle(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\346\216\247\345\210\266\351\235\242\346\235\277", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindowClass", "\350\275\264\345\217\202\346\225\260\350\256\276\347\275\256", nullptr));
         label->setText(QCoreApplication::translate("MainWindowClass", "PPU", nullptr));

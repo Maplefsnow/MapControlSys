@@ -1,9 +1,8 @@
 #pragma once
 
 #include <qwidget.h>
-#include "FAIORelay.h"
-
-#define RELAY_LASERSENSOR_PORT 2
+#include "LaserSensor.h"
+#include "UpdateLaserSensorPanelUI.h"
 
 class LaserSensorPanel : public QWidget {
 	Q_OBJECT
@@ -12,6 +11,8 @@ public:
 	LaserSensorPanel(QWidget* parent);
 	~LaserSensorPanel();
 	
+	LaserSensor* sensor;
+	UpdateLaserSensorPanelUI* updateUIThread;
 
 public:
 	Q_INVOKABLE void updateUI();

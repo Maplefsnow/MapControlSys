@@ -20,7 +20,7 @@ public:
 	HAND deviceHand = 0;
 
 	short axisID = 0;
-	Axis axis;
+	Axis axis[8];
 
 	UpdateMotorPanelUI* updateUIThread;
 
@@ -33,6 +33,7 @@ public slots:
 
 	void initAxis();
 	void setAxisParams();
+	void setAxisZero();
 
 	void axisRunDis();
 	void axisRun();
@@ -40,6 +41,6 @@ public slots:
 	void axisReturnCmdZero();
 	void axisStop();
 
-	void setAxisZero();
+	void panelParamsUpdate(int axisID);
 };
 

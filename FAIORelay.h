@@ -25,6 +25,6 @@ public:
 	QString getErrorMsg(IOBERROR err);
 	
 private:
-	short com = 0;
+	short com = -1;
 };
 

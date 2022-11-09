@@ -16,8 +16,10 @@ MotorPanel::~MotorPanel() {
 Q_INVOKABLE void MotorPanel::updateAxisCmdPos() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
+	if(mainWindow == nullptr) return;
+
 	try {
-		DOUBLE pos = this->axis.getCmdPos();
+		DOUBLE pos = this->axis[this->axisID].getCmdPos();
 		mainWindow->ui.label_cmdPos->setText(QString::number(pos, 'f', 4));
 	}
 	catch (const char* errMsg) {
@@ -29,10 +31,12 @@ Q_INVOKABLE void MotorPanel::updateAxisCmdPos() {
 Q_INVOKABLE void MotorPanel::updateStatus() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
+	if (mainWindow == nullptr) return;
+
 	U16 status = 0;
 
 	try {
-		status = this->axis.getAxisStatus();
+		status = this->axis[this->axisID].getAxisStatus();
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.label_status->setText(errMsg);
@@ -79,7 +83,7 @@ void MotorPanel::initAxis() {
 
 	USHORT axisID = mainWindow->ui.comboBox_axisID->currentIndex();
 	try {
-		this->axis = Axis::Axis(this->deviceHand, axisID);
+		this->axis[axisID] = Axis::Axis(this->deviceHand, axisID);
 		this->axisID = axisID;
 	}
 	catch (const char *msg) {
@@ -99,16 +103,16 @@ void MotorPanel::setAxisParams() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if (this->axis.hand == 0) {
+	if (this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.setPPU(mainWindow->ui.spinBox_PPU->value(), mainWindow->ui.spinBox_PPUDenominator->value());
+		this->axis[this->axisID].setPPU(mainWindow->ui.spinBox_PPU->value(), mainWindow->ui.spinBox_PPUDenominator->value());
 
 
-		this->axis.setVelParams(mainWindow->ui.spinBox_initVel->value(),
+		this->axis[this->axisID].setVelParams(mainWindow->ui.spinBox_initVel->value(),
 			mainWindow->ui.spinBox_runningVel->value(),
 			mainWindow->ui.spinBox_acc->value(),
 			mainWindow->ui.spinBox_dec->value());
@@ -121,6 +125,26 @@ void MotorPanel::setAxisParams() {
 	mainWindow->ui.statusBar->showMessage("Params set success!", 2000);
 }
 
+void MotorPanel::setAxisZero() {
+	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
+
+	if (this->deviceHand == 0) {
+		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
+		return;
+	}
+	if (this->axis[this->axisID].hand == 0) {
+		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
+		return;
+	}
+
+	try {
+		this->axis[this->axisID].setCmdPos(0.0);
+	}
+	catch (const char* errMsg) {
+		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
+	}
+}
+
 void MotorPanel::axisRunDis() {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
@@ -128,13 +152,13 @@ void MotorPanel::axisRunDis() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if(this->axis.hand == 0) {
+	if(this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.relMove(mainWindow->ui.doubleSpinBox_runDis->value());
+		this->axis[this->axisID].relMove(mainWindow->ui.doubleSpinBox_runDis->value());
 	}
 	catch (const char *errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
@@ -148,13 +172,13 @@ void MotorPanel::axisRun() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if (this->axis.hand == 0) {
+	if (this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.contiMove(0);
+		this->axis[this->axisID].contiMove(0);
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
@@ -168,13 +192,13 @@ void MotorPanel::axisRunRev() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if (this->axis.hand == 0) {
+	if (this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.contiMove(1);
+		this->axis[this->axisID].contiMove(1);
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
@@ -188,13 +212,13 @@ void MotorPanel::axisReturnCmdZero() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if (this->axis.hand == 0) {
+	if (this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.returnCmdZero();
+		this->axis[this->axisID].returnCmdZero();
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
@@ -208,35 +232,28 @@ void MotorPanel::axisStop() {
 		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
 		return;
 	}
-	if (this->axis.hand == 0) {
+	if (this->axis[this->axisID].hand == 0) {
 		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
 		return;
 	}
 
 	try {
-		this->axis.stop();
+		this->axis[this->axisID].stop();
 	}
 	catch (const char* errMsg) {
 		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
 	}
 }
 
-void MotorPanel::setAxisZero() {
+void MotorPanel::panelParamsUpdate(int axisID) {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
-	if (this->deviceHand == 0) {
-		mainWindow->ui.statusBar->showMessage("No device card detected, please retry!", 2000);
-		return;
-	}
-	if (this->axis.hand == 0) {
-		mainWindow->ui.statusBar->showMessage("No axis selected, please select an axis!", 2000);
-		return;
-	}
+	this->axisID = axisID;
 
-	try {
-		this->axis.setCmdPos(0.0);
-	}
-	catch (const char* errMsg) {
-		mainWindow->ui.statusBar->showMessage(errMsg, 2000);
-	}
+	mainWindow->ui.spinBox_PPU->setValue(this->axis[axisID].PPU);
+	mainWindow->ui.spinBox_PPUDenominator->setValue(this->axis[axisID].PPUDenominator);
+	mainWindow->ui.spinBox_acc->setValue(this->axis[axisID].acc);
+	mainWindow->ui.spinBox_dec->setValue(this->axis[axisID].dec);
+	mainWindow->ui.spinBox_initVel->setValue(this->axis[axisID].initVel);
+	mainWindow->ui.spinBox_runningVel->setValue(this->axis[axisID].runningVel);
 }

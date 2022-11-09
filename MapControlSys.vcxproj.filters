@@ -61,6 +61,9 @@
     <ClCompile Include="RelayPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UpdateLaserSensorPanelUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h">
@@ -86,5 +89,11 @@
     <QtMoc Include="RelayPanel.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="UpdateLaserSensorPanelUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
