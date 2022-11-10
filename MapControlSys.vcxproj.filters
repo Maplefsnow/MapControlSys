@@ -64,6 +64,15 @@
     <ClCompile Include="UpdateLaserSensorPanelUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DaHengCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateCamImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h">
@@ -73,6 +82,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FAIORelay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DaHengCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -90,6 +102,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="UpdateLaserSensorPanelUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CameraPanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UpdateCamImage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

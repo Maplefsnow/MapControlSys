@@ -29,6 +29,7 @@
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "CameraPanel.h"
 #include "LaserSensorPanel.h"
 #include "MotorPanel.h"
 #include "RelayPanel.h"
@@ -41,7 +42,7 @@ public:
     QAction *actionOpen_Image;
     QAction *actionSave_Image;
     QWidget *centralWidget;
-    QGridLayout *gridLayout_9;
+    QGridLayout *gridLayout_3;
     QGroupBox *groupBox_8;
     QVBoxLayout *verticalLayout_2;
     RelayPanel *relayWidget;
@@ -63,10 +64,32 @@ public:
     QLabel *label_laserSensorVoltage;
     QLabel *label_13;
     QLabel *label_14;
+    QGroupBox *groupBox_4;
+    QGridLayout *gridLayout;
+    CameraPanel *cameraPanel;
+    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_15;
+    QLabel *label_camSN;
+    QPushButton *pushButton_detectCam;
+    QHBoxLayout *horizontalLayout_10;
+    QPushButton *pushButton_startGrab;
+    QPushButton *pushButton_stopGrab;
+    QLabel *label_cameraImage;
     QGroupBox *groupBox_Motor;
     QGridLayout *gridLayout_4;
     MotorPanel *motorWidget;
     QGridLayout *gridLayout_5;
+    QGroupBox *groupBox_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_11;
+    QLabel *label_realPos;
+    QFrame *line_3;
+    QLabel *label_8;
+    QLabel *label_cmdPos;
+    QFrame *line_2;
+    QLabel *label_7;
+    QLabel *label_status;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_2;
     QLabel *label;
@@ -83,37 +106,30 @@ public:
     QSpinBox *spinBox_initVel;
     QLabel *label_5;
     QGroupBox *groupBox_5;
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout;
     QLabel *label_10;
     QLabel *label_cardID;
     QPushButton *pushButton;
-    QPushButton *pushButton_initAxis;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_12;
     QComboBox *comboBox_axisID;
-    QGroupBox *groupBox_2;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_11;
-    QLabel *label_realPos;
-    QFrame *line_3;
-    QLabel *label_8;
-    QLabel *label_cmdPos;
-    QFrame *line_2;
-    QLabel *label_7;
-    QLabel *label_status;
+    QPushButton *pushButton_initAxis;
     QGroupBox *groupBox_3;
-    QGridLayout *gridLayout_3;
-    QToolButton *button_runDis;
-    QPushButton *pushButton_axisReturnHome;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label_9;
-    QPushButton *pushButton_setAxisZero;
     QDoubleSpinBox *doubleSpinBox_runDis;
-    QGroupBox *groupBox_4;
-    QGridLayout *gridLayout_8;
+    QToolButton *button_runDis;
+    QHBoxLayout *horizontalLayout_8;
     QToolButton *toolButton_RevXCmove;
     QToolButton *toolButton_RevXmove;
     QToolButton *toolButton_stopMotor;
     QToolButton *toolButton_Xmove;
-    QToolButton *toolButton_6;
+    QToolButton *toolButton_XCmove;
+    QHBoxLayout *horizontalLayout_4;
+    QPushButton *pushButton_setAxisZero;
+    QPushButton *pushButton_axisReturnHome;
     QMenuBar *menuBar;
     QMenu *menuMenu;
     QStatusBar *statusBar;
@@ -122,17 +138,17 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QString::fromUtf8("MainWindowClass"));
-        MainWindowClass->resize(818, 681);
+        MainWindowClass->resize(1068, 685);
         actionOpen_Image = new QAction(MainWindowClass);
         actionOpen_Image->setObjectName(QString::fromUtf8("actionOpen_Image"));
         actionSave_Image = new QAction(MainWindowClass);
         actionSave_Image->setObjectName(QString::fromUtf8("actionSave_Image"));
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        gridLayout_9 = new QGridLayout(centralWidget);
-        gridLayout_9->setSpacing(6);
-        gridLayout_9->setContentsMargins(11, 11, 11, 11);
-        gridLayout_9->setObjectName(QString::fromUtf8("gridLayout_9"));
+        gridLayout_3 = new QGridLayout(centralWidget);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         groupBox_8 = new QGroupBox(centralWidget);
         groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
         QFont font;
@@ -218,7 +234,7 @@ public:
         verticalLayout_2->addWidget(relayWidget);
 
 
-        gridLayout_9->addWidget(groupBox_8, 0, 0, 1, 1);
+        gridLayout_3->addWidget(groupBox_8, 0, 0, 1, 1);
 
         groupBox_6 = new QGroupBox(centralWidget);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
@@ -257,7 +273,69 @@ public:
         gridLayout_6->addWidget(laserSensorWidget, 0, 0, 1, 1);
 
 
-        gridLayout_9->addWidget(groupBox_6, 0, 1, 1, 1);
+        gridLayout_3->addWidget(groupBox_6, 0, 1, 1, 1);
+
+        groupBox_4 = new QGroupBox(centralWidget);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox_4->setFont(font);
+        gridLayout = new QGridLayout(groupBox_4);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        cameraPanel = new CameraPanel(groupBox_4);
+        cameraPanel->setObjectName(QString::fromUtf8("cameraPanel"));
+        verticalLayout_5 = new QVBoxLayout(cameraPanel);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        label_15 = new QLabel(cameraPanel);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+
+        horizontalLayout_9->addWidget(label_15);
+
+        label_camSN = new QLabel(cameraPanel);
+        label_camSN->setObjectName(QString::fromUtf8("label_camSN"));
+
+        horizontalLayout_9->addWidget(label_camSN);
+
+        pushButton_detectCam = new QPushButton(cameraPanel);
+        pushButton_detectCam->setObjectName(QString::fromUtf8("pushButton_detectCam"));
+
+        horizontalLayout_9->addWidget(pushButton_detectCam);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_9);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setSpacing(6);
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        pushButton_startGrab = new QPushButton(cameraPanel);
+        pushButton_startGrab->setObjectName(QString::fromUtf8("pushButton_startGrab"));
+
+        horizontalLayout_10->addWidget(pushButton_startGrab);
+
+        pushButton_stopGrab = new QPushButton(cameraPanel);
+        pushButton_stopGrab->setObjectName(QString::fromUtf8("pushButton_stopGrab"));
+
+        horizontalLayout_10->addWidget(pushButton_stopGrab);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_10);
+
+        label_cameraImage = new QLabel(cameraPanel);
+        label_cameraImage->setObjectName(QString::fromUtf8("label_cameraImage"));
+        label_cameraImage->setMinimumSize(QSize(400, 400));
+
+        verticalLayout_5->addWidget(label_cameraImage);
+
+
+        gridLayout->addWidget(cameraPanel, 0, 0, 1, 1);
+
+
+        gridLayout_3->addWidget(groupBox_4, 0, 2, 2, 1);
 
         groupBox_Motor = new QGroupBox(centralWidget);
         groupBox_Motor->setObjectName(QString::fromUtf8("groupBox_Motor"));
@@ -272,32 +350,102 @@ public:
         gridLayout_5->setSpacing(6);
         gridLayout_5->setContentsMargins(11, 11, 11, 11);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        groupBox = new QGroupBox(motorWidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox_2 = new QGroupBox(motorWidget);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
         font1.setPointSize(11);
         font1.setBold(false);
-        font1.setItalic(false);
-        groupBox->setFont(font1);
+        groupBox_2->setFont(font1);
+        horizontalLayout_2 = new QHBoxLayout(groupBox_2);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label_11 = new QLabel(groupBox_2);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Microsoft YaHei")});
+        font2.setPointSize(11);
+        font2.setBold(false);
+        label_11->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_11);
+
+        label_realPos = new QLabel(groupBox_2);
+        label_realPos->setObjectName(QString::fromUtf8("label_realPos"));
+        label_realPos->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_realPos);
+
+        line_3 = new QFrame(groupBox_2);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setFont(font2);
+        line_3->setFrameShape(QFrame::VLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+
+        horizontalLayout_2->addWidget(line_3);
+
+        label_8 = new QLabel(groupBox_2);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_8);
+
+        label_cmdPos = new QLabel(groupBox_2);
+        label_cmdPos->setObjectName(QString::fromUtf8("label_cmdPos"));
+        label_cmdPos->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_cmdPos);
+
+        line_2 = new QFrame(groupBox_2);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setFont(font2);
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        horizontalLayout_2->addWidget(line_2);
+
+        label_7 = new QLabel(groupBox_2);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_7);
+
+        label_status = new QLabel(groupBox_2);
+        label_status->setObjectName(QString::fromUtf8("label_status"));
+        label_status->setFont(font2);
+
+        horizontalLayout_2->addWidget(label_status);
+
+
+        gridLayout_5->addWidget(groupBox_2, 2, 0, 1, 2);
+
+        groupBox = new QGroupBox(motorWidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
+        font3.setPointSize(11);
+        font3.setBold(false);
+        font3.setItalic(false);
+        groupBox->setFont(font3);
         gridLayout_2 = new QGridLayout(groupBox);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
-        font2.setPointSize(10);
-        font2.setBold(false);
-        font2.setItalic(false);
-        label->setFont(font2);
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
+        font4.setPointSize(10);
+        font4.setBold(false);
+        font4.setItalic(false);
+        label->setFont(font4);
 
         gridLayout_2->addWidget(label, 0, 0, 1, 1);
 
         paramsSetButton = new QPushButton(groupBox);
         paramsSetButton->setObjectName(QString::fromUtf8("paramsSetButton"));
-        paramsSetButton->setFont(font1);
+        paramsSetButton->setFont(font3);
         paramsSetButton->setAutoDefault(false);
         paramsSetButton->setFlat(false);
 
@@ -306,7 +454,7 @@ public:
         spinBox_runningVel = new QSpinBox(groupBox);
         spinBox_runningVel->setObjectName(QString::fromUtf8("spinBox_runningVel"));
         spinBox_runningVel->setMinimumSize(QSize(110, 22));
-        spinBox_runningVel->setFont(font2);
+        spinBox_runningVel->setFont(font4);
         spinBox_runningVel->setMouseTracking(false);
         spinBox_runningVel->setTabletTracking(false);
         spinBox_runningVel->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -318,26 +466,26 @@ public:
 
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font2);
+        label_2->setFont(font4);
 
         gridLayout_2->addWidget(label_2, 1, 0, 1, 2);
 
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font2);
+        label_3->setFont(font4);
 
         gridLayout_2->addWidget(label_3, 5, 0, 1, 2);
 
         label_4 = new QLabel(groupBox);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font2);
+        label_4->setFont(font4);
 
         gridLayout_2->addWidget(label_4, 4, 0, 1, 2);
 
         spinBox_PPU = new QSpinBox(groupBox);
         spinBox_PPU->setObjectName(QString::fromUtf8("spinBox_PPU"));
         spinBox_PPU->setMinimumSize(QSize(110, 22));
-        spinBox_PPU->setFont(font2);
+        spinBox_PPU->setFont(font4);
         spinBox_PPU->setMouseTracking(false);
         spinBox_PPU->setTabletTracking(false);
         spinBox_PPU->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -350,7 +498,7 @@ public:
         spinBox_acc = new QSpinBox(groupBox);
         spinBox_acc->setObjectName(QString::fromUtf8("spinBox_acc"));
         spinBox_acc->setMinimumSize(QSize(110, 22));
-        spinBox_acc->setFont(font2);
+        spinBox_acc->setFont(font4);
         spinBox_acc->setMouseTracking(false);
         spinBox_acc->setTabletTracking(false);
         spinBox_acc->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -362,14 +510,14 @@ public:
 
         label_6 = new QLabel(groupBox);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font2);
+        label_6->setFont(font4);
 
         gridLayout_2->addWidget(label_6, 3, 0, 1, 2);
 
         spinBox_PPUDenominator = new QSpinBox(groupBox);
         spinBox_PPUDenominator->setObjectName(QString::fromUtf8("spinBox_PPUDenominator"));
         spinBox_PPUDenominator->setMinimumSize(QSize(110, 22));
-        spinBox_PPUDenominator->setFont(font2);
+        spinBox_PPUDenominator->setFont(font4);
         spinBox_PPUDenominator->setMouseTracking(false);
         spinBox_PPUDenominator->setTabletTracking(false);
         spinBox_PPUDenominator->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -383,7 +531,7 @@ public:
         spinBox_dec->setObjectName(QString::fromUtf8("spinBox_dec"));
         spinBox_dec->setMinimumSize(QSize(110, 22));
         spinBox_dec->setSizeIncrement(QSize(1, 1111));
-        spinBox_dec->setFont(font2);
+        spinBox_dec->setFont(font4);
         spinBox_dec->setMouseTracking(false);
         spinBox_dec->setTabletTracking(false);
         spinBox_dec->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -396,7 +544,7 @@ public:
         spinBox_initVel = new QSpinBox(groupBox);
         spinBox_initVel->setObjectName(QString::fromUtf8("spinBox_initVel"));
         spinBox_initVel->setMinimumSize(QSize(110, 22));
-        spinBox_initVel->setFont(font2);
+        spinBox_initVel->setFont(font4);
         spinBox_initVel->setMouseTracking(false);
         spinBox_initVel->setTabletTracking(false);
         spinBox_initVel->setContextMenuPolicy(Qt::DefaultContextMenu);
@@ -408,7 +556,7 @@ public:
 
         label_5 = new QLabel(groupBox);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font2);
+        label_5->setFont(font4);
 
         gridLayout_2->addWidget(label_5, 2, 0, 1, 2);
 
@@ -418,39 +566,42 @@ public:
         groupBox_5 = new QGroupBox(motorWidget);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
         groupBox_5->setFont(font);
-        gridLayout = new QGridLayout(groupBox_5);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalLayout_3 = new QVBoxLayout(groupBox_5);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label_10 = new QLabel(groupBox_5);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setFont(font);
 
-        gridLayout->addWidget(label_10, 0, 0, 1, 1);
+        horizontalLayout->addWidget(label_10);
 
         label_cardID = new QLabel(groupBox_5);
         label_cardID->setObjectName(QString::fromUtf8("label_cardID"));
         label_cardID->setFont(font);
 
-        gridLayout->addWidget(label_cardID, 0, 1, 1, 1);
+        horizontalLayout->addWidget(label_cardID);
 
         pushButton = new QPushButton(groupBox_5);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setFont(font);
 
-        gridLayout->addWidget(pushButton, 0, 2, 1, 1);
+        horizontalLayout->addWidget(pushButton);
 
-        pushButton_initAxis = new QPushButton(groupBox_5);
-        pushButton_initAxis->setObjectName(QString::fromUtf8("pushButton_initAxis"));
-        pushButton_initAxis->setFont(font);
 
-        gridLayout->addWidget(pushButton_initAxis, 2, 0, 1, 3);
+        verticalLayout_3->addLayout(horizontalLayout);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_12 = new QLabel(groupBox_5);
         label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setFont(font);
 
-        gridLayout->addWidget(label_12, 1, 0, 1, 1);
+        horizontalLayout_3->addWidget(label_12);
 
         comboBox_axisID = new QComboBox(groupBox_5);
         comboBox_axisID->addItem(QString());
@@ -462,109 +613,35 @@ public:
         comboBox_axisID->setObjectName(QString::fromUtf8("comboBox_axisID"));
         comboBox_axisID->setFont(font);
 
-        gridLayout->addWidget(comboBox_axisID, 1, 1, 1, 2);
+        horizontalLayout_3->addWidget(comboBox_axisID);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
+
+        pushButton_initAxis = new QPushButton(groupBox_5);
+        pushButton_initAxis->setObjectName(QString::fromUtf8("pushButton_initAxis"));
+        pushButton_initAxis->setFont(font);
+
+        verticalLayout_3->addWidget(pushButton_initAxis);
 
 
         gridLayout_5->addWidget(groupBox_5, 0, 0, 1, 1);
 
-        groupBox_2 = new QGroupBox(motorWidget);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
-        font3.setPointSize(11);
-        font3.setBold(false);
-        groupBox_2->setFont(font3);
-        horizontalLayout_2 = new QHBoxLayout(groupBox_2);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_11 = new QLabel(groupBox_2);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        QFont font4;
-        font4.setFamilies({QString::fromUtf8("Microsoft YaHei")});
-        font4.setPointSize(11);
-        font4.setBold(false);
-        label_11->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_11);
-
-        label_realPos = new QLabel(groupBox_2);
-        label_realPos->setObjectName(QString::fromUtf8("label_realPos"));
-        label_realPos->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_realPos);
-
-        line_3 = new QFrame(groupBox_2);
-        line_3->setObjectName(QString::fromUtf8("line_3"));
-        line_3->setFont(font4);
-        line_3->setFrameShape(QFrame::VLine);
-        line_3->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_2->addWidget(line_3);
-
-        label_8 = new QLabel(groupBox_2);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_8);
-
-        label_cmdPos = new QLabel(groupBox_2);
-        label_cmdPos->setObjectName(QString::fromUtf8("label_cmdPos"));
-        label_cmdPos->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_cmdPos);
-
-        line_2 = new QFrame(groupBox_2);
-        line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setFont(font4);
-        line_2->setFrameShape(QFrame::VLine);
-        line_2->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_2->addWidget(line_2);
-
-        label_7 = new QLabel(groupBox_2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_7);
-
-        label_status = new QLabel(groupBox_2);
-        label_status->setObjectName(QString::fromUtf8("label_status"));
-        label_status->setFont(font4);
-
-        horizontalLayout_2->addWidget(label_status);
-
-
-        gridLayout_5->addWidget(groupBox_2, 2, 0, 1, 2);
-
         groupBox_3 = new QGroupBox(motorWidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setFont(font3);
-        gridLayout_3 = new QGridLayout(groupBox_3);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        button_runDis = new QToolButton(groupBox_3);
-        button_runDis->setObjectName(QString::fromUtf8("button_runDis"));
-        button_runDis->setFont(font3);
-
-        gridLayout_3->addWidget(button_runDis, 0, 3, 1, 1);
-
-        pushButton_axisReturnHome = new QPushButton(groupBox_3);
-        pushButton_axisReturnHome->setObjectName(QString::fromUtf8("pushButton_axisReturnHome"));
-
-        gridLayout_3->addWidget(pushButton_axisReturnHome, 2, 2, 1, 2);
-
+        groupBox_3->setFont(font1);
+        verticalLayout_4 = new QVBoxLayout(groupBox_3);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label_9 = new QLabel(groupBox_3);
         label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font3);
+        label_9->setFont(font1);
 
-        gridLayout_3->addWidget(label_9, 0, 0, 1, 1);
-
-        pushButton_setAxisZero = new QPushButton(groupBox_3);
-        pushButton_setAxisZero->setObjectName(QString::fromUtf8("pushButton_setAxisZero"));
-
-        gridLayout_3->addWidget(pushButton_setAxisZero, 2, 0, 1, 2);
+        horizontalLayout_5->addWidget(label_9);
 
         doubleSpinBox_runDis = new QDoubleSpinBox(groupBox_3);
         doubleSpinBox_runDis->setObjectName(QString::fromUtf8("doubleSpinBox_runDis"));
@@ -573,47 +650,68 @@ public:
         doubleSpinBox_runDis->setMaximum(10000000.000000000000000);
         doubleSpinBox_runDis->setSingleStep(0.100000000000000);
 
-        gridLayout_3->addWidget(doubleSpinBox_runDis, 0, 2, 1, 1);
+        horizontalLayout_5->addWidget(doubleSpinBox_runDis);
 
-        groupBox_4 = new QGroupBox(groupBox_3);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setFont(font3);
-        gridLayout_8 = new QGridLayout(groupBox_4);
-        gridLayout_8->setSpacing(6);
-        gridLayout_8->setContentsMargins(11, 11, 11, 11);
-        gridLayout_8->setObjectName(QString::fromUtf8("gridLayout_8"));
-        toolButton_RevXCmove = new QToolButton(groupBox_4);
+        button_runDis = new QToolButton(groupBox_3);
+        button_runDis->setObjectName(QString::fromUtf8("button_runDis"));
+        button_runDis->setFont(font1);
+
+        horizontalLayout_5->addWidget(button_runDis);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_5);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        toolButton_RevXCmove = new QToolButton(groupBox_3);
         toolButton_RevXCmove->setObjectName(QString::fromUtf8("toolButton_RevXCmove"));
-        toolButton_RevXCmove->setFont(font3);
+        toolButton_RevXCmove->setFont(font1);
 
-        gridLayout_8->addWidget(toolButton_RevXCmove, 0, 0, 1, 1);
+        horizontalLayout_8->addWidget(toolButton_RevXCmove);
 
-        toolButton_RevXmove = new QToolButton(groupBox_4);
+        toolButton_RevXmove = new QToolButton(groupBox_3);
         toolButton_RevXmove->setObjectName(QString::fromUtf8("toolButton_RevXmove"));
-        toolButton_RevXmove->setFont(font3);
+        toolButton_RevXmove->setFont(font1);
 
-        gridLayout_8->addWidget(toolButton_RevXmove, 0, 1, 1, 1);
+        horizontalLayout_8->addWidget(toolButton_RevXmove);
 
-        toolButton_stopMotor = new QToolButton(groupBox_4);
+        toolButton_stopMotor = new QToolButton(groupBox_3);
         toolButton_stopMotor->setObjectName(QString::fromUtf8("toolButton_stopMotor"));
-        toolButton_stopMotor->setFont(font3);
+        toolButton_stopMotor->setFont(font1);
 
-        gridLayout_8->addWidget(toolButton_stopMotor, 0, 2, 1, 1);
+        horizontalLayout_8->addWidget(toolButton_stopMotor);
 
-        toolButton_Xmove = new QToolButton(groupBox_4);
+        toolButton_Xmove = new QToolButton(groupBox_3);
         toolButton_Xmove->setObjectName(QString::fromUtf8("toolButton_Xmove"));
-        toolButton_Xmove->setFont(font3);
+        toolButton_Xmove->setFont(font1);
 
-        gridLayout_8->addWidget(toolButton_Xmove, 0, 3, 1, 1);
+        horizontalLayout_8->addWidget(toolButton_Xmove);
 
-        toolButton_6 = new QToolButton(groupBox_4);
-        toolButton_6->setObjectName(QString::fromUtf8("toolButton_6"));
-        toolButton_6->setFont(font3);
+        toolButton_XCmove = new QToolButton(groupBox_3);
+        toolButton_XCmove->setObjectName(QString::fromUtf8("toolButton_XCmove"));
+        toolButton_XCmove->setFont(font1);
 
-        gridLayout_8->addWidget(toolButton_6, 0, 4, 1, 1);
+        horizontalLayout_8->addWidget(toolButton_XCmove);
 
 
-        gridLayout_3->addWidget(groupBox_4, 3, 0, 1, 4);
+        verticalLayout_4->addLayout(horizontalLayout_8);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        pushButton_setAxisZero = new QPushButton(groupBox_3);
+        pushButton_setAxisZero->setObjectName(QString::fromUtf8("pushButton_setAxisZero"));
+
+        horizontalLayout_4->addWidget(pushButton_setAxisZero);
+
+        pushButton_axisReturnHome = new QPushButton(groupBox_3);
+        pushButton_axisReturnHome->setObjectName(QString::fromUtf8("pushButton_axisReturnHome"));
+
+        horizontalLayout_4->addWidget(pushButton_axisReturnHome);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_4);
 
 
         gridLayout_5->addWidget(groupBox_3, 0, 1, 2, 1);
@@ -622,18 +720,42 @@ public:
         gridLayout_4->addWidget(motorWidget, 0, 0, 1, 1);
 
 
-        gridLayout_9->addWidget(groupBox_Motor, 1, 0, 1, 2);
+        gridLayout_3->addWidget(groupBox_Motor, 1, 0, 1, 2);
 
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 818, 22));
+        menuBar->setGeometry(QRect(0, 0, 1068, 22));
         menuMenu = new QMenu(menuBar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
         MainWindowClass->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindowClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindowClass->setStatusBar(statusBar);
+        QWidget::setTabOrder(comboBox_relayCards, pushButton_openRelayCards);
+        QWidget::setTabOrder(pushButton_openRelayCards, checkBox_axis0Switcher);
+        QWidget::setTabOrder(checkBox_axis0Switcher, checkBox_axis1Switcher);
+        QWidget::setTabOrder(checkBox_axis1Switcher, checkBox_laserSensorSwitcher);
+        QWidget::setTabOrder(checkBox_laserSensorSwitcher, checkBox_airValveSwitcher);
+        QWidget::setTabOrder(checkBox_airValveSwitcher, pushButton);
+        QWidget::setTabOrder(pushButton, comboBox_axisID);
+        QWidget::setTabOrder(comboBox_axisID, pushButton_initAxis);
+        QWidget::setTabOrder(pushButton_initAxis, spinBox_PPU);
+        QWidget::setTabOrder(spinBox_PPU, spinBox_PPUDenominator);
+        QWidget::setTabOrder(spinBox_PPUDenominator, spinBox_acc);
+        QWidget::setTabOrder(spinBox_acc, spinBox_dec);
+        QWidget::setTabOrder(spinBox_dec, spinBox_runningVel);
+        QWidget::setTabOrder(spinBox_runningVel, spinBox_initVel);
+        QWidget::setTabOrder(spinBox_initVel, paramsSetButton);
+        QWidget::setTabOrder(paramsSetButton, doubleSpinBox_runDis);
+        QWidget::setTabOrder(doubleSpinBox_runDis, button_runDis);
+        QWidget::setTabOrder(button_runDis, toolButton_RevXCmove);
+        QWidget::setTabOrder(toolButton_RevXCmove, toolButton_RevXmove);
+        QWidget::setTabOrder(toolButton_RevXmove, toolButton_stopMotor);
+        QWidget::setTabOrder(toolButton_stopMotor, toolButton_Xmove);
+        QWidget::setTabOrder(toolButton_Xmove, toolButton_XCmove);
+        QWidget::setTabOrder(toolButton_XCmove, pushButton_setAxisZero);
+        QWidget::setTabOrder(pushButton_setAxisZero, pushButton_axisReturnHome);
 
         menuBar->addAction(menuMenu->menuAction());
         menuMenu->addAction(actionOpen_Image);
@@ -644,13 +766,6 @@ public:
         QObject::connect(pushButton, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::checkCard));
         QObject::connect(pushButton_initAxis, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::initAxis));
         QObject::connect(button_runDis, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRunDis));
-        QObject::connect(toolButton_stopMotor, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisStop));
-        QObject::connect(toolButton_Xmove, &QToolButton::pressed, motorWidget, qOverload<>(&MotorPanel::axisRun));
-        QObject::connect(toolButton_Xmove, &QToolButton::released, motorWidget, qOverload<>(&MotorPanel::axisStop));
-        QObject::connect(toolButton_RevXmove, &QToolButton::pressed, motorWidget, qOverload<>(&MotorPanel::axisRunRev));
-        QObject::connect(toolButton_RevXmove, &QToolButton::released, motorWidget, qOverload<>(&MotorPanel::axisStop));
-        QObject::connect(toolButton_RevXCmove, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRunRev));
-        QObject::connect(toolButton_6, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRun));
         QObject::connect(pushButton_setAxisZero, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::setAxisZero));
         QObject::connect(pushButton_axisReturnHome, &QPushButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisReturnCmdZero));
         QObject::connect(pushButton_openRelayCards, &QPushButton::clicked, relayWidget, qOverload<>(&RelayPanel::openCard));
@@ -659,6 +774,16 @@ public:
         QObject::connect(comboBox_axisID, SIGNAL(currentIndexChanged(int)), motorWidget, SLOT(panelParamsUpdate(int)));
         QObject::connect(checkBox_axis0Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(axis0Switcher(int)));
         QObject::connect(checkBox_axis1Switcher, SIGNAL(stateChanged(int)), relayWidget, SLOT(axis1Switcher(int)));
+        QObject::connect(toolButton_stopMotor, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisStop));
+        QObject::connect(toolButton_Xmove, &QToolButton::pressed, motorWidget, qOverload<>(&MotorPanel::axisRun));
+        QObject::connect(toolButton_Xmove, &QToolButton::released, motorWidget, qOverload<>(&MotorPanel::axisStop));
+        QObject::connect(toolButton_RevXmove, &QToolButton::pressed, motorWidget, qOverload<>(&MotorPanel::axisRunRev));
+        QObject::connect(toolButton_RevXmove, &QToolButton::released, motorWidget, qOverload<>(&MotorPanel::axisStop));
+        QObject::connect(toolButton_RevXCmove, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRunRev));
+        QObject::connect(toolButton_XCmove, &QToolButton::clicked, motorWidget, qOverload<>(&MotorPanel::axisRun));
+        QObject::connect(pushButton_detectCam, &QPushButton::clicked, cameraPanel, qOverload<>(&CameraPanel::initCam));
+        QObject::connect(pushButton_startGrab, &QPushButton::clicked, cameraPanel, qOverload<>(&CameraPanel::startGrab));
+        QObject::connect(pushButton_stopGrab, &QPushButton::clicked, cameraPanel, qOverload<>(&CameraPanel::stopGrab));
 
         paramsSetButton->setDefault(false);
 
@@ -689,7 +814,21 @@ public:
         label_laserSensorVoltage->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindowClass", "\347\224\265\345\216\213\345\200\274 (V)\357\274\232", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindowClass", "\350\267\235\347\246\273 (\316\274m)\357\274\232", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("MainWindowClass", "\346\221\204\345\203\217\346\234\272\351\235\242\346\235\277", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindowClass", "\350\256\276\345\244\207SN\357\274\232", nullptr));
+        label_camSN->setText(QCoreApplication::translate("MainWindowClass", "\346\234\252\346\243\200\346\265\213", nullptr));
+        pushButton_detectCam->setText(QCoreApplication::translate("MainWindowClass", "\346\243\200\346\265\213", nullptr));
+        pushButton_startGrab->setText(QCoreApplication::translate("MainWindowClass", "\345\274\200\345\247\213\351\207\207\351\233\206", nullptr));
+        pushButton_stopGrab->setText(QCoreApplication::translate("MainWindowClass", "\345\201\234\346\255\242\351\207\207\351\233\206", nullptr));
+        label_cameraImage->setText(QCoreApplication::translate("MainWindowClass", "Image", nullptr));
         groupBox_Motor->setTitle(QCoreApplication::translate("MainWindowClass", "\347\224\265\346\234\272\346\216\247\345\210\266\351\235\242\346\235\277", nullptr));
+        groupBox_2->setTitle(QCoreApplication::translate("MainWindowClass", "\350\275\264\347\212\266\346\200\201\344\277\241\346\201\257", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindowClass", "\347\273\235\345\257\271\344\275\215\347\275\256\357\274\232", nullptr));
+        label_realPos->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindowClass", "\345\221\275\344\273\244\344\275\215\347\275\256\357\274\232", nullptr));
+        label_cmdPos->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindowClass", "\350\277\220\350\241\214\347\212\266\346\200\201\357\274\232", nullptr));
+        label_status->setText(QCoreApplication::translate("MainWindowClass", "Not opened", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindowClass", "\350\275\264\345\217\202\346\225\260\350\256\276\347\275\256", nullptr));
         label->setText(QCoreApplication::translate("MainWindowClass", "PPU", nullptr));
         paramsSetButton->setText(QCoreApplication::translate("MainWindowClass", "\350\256\276\347\275\256\345\217\202\346\225\260", nullptr));
@@ -702,7 +841,6 @@ public:
         label_10->setText(QCoreApplication::translate("MainWindowClass", "\346\235\277\345\215\241ID\357\274\232", nullptr));
         label_cardID->setText(QCoreApplication::translate("MainWindowClass", "\346\234\252\346\243\200\346\265\213", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindowClass", "\346\243\200\346\265\213", nullptr));
-        pushButton_initAxis->setText(QCoreApplication::translate("MainWindowClass", "\345\210\235\345\247\213\345\214\226\350\275\264", nullptr));
         label_12->setText(QCoreApplication::translate("MainWindowClass", "\350\275\264\357\274\232", nullptr));
         comboBox_axisID->setItemText(0, QCoreApplication::translate("MainWindowClass", "0", nullptr));
         comboBox_axisID->setItemText(1, QCoreApplication::translate("MainWindowClass", "1", nullptr));
@@ -711,24 +849,17 @@ public:
         comboBox_axisID->setItemText(4, QCoreApplication::translate("MainWindowClass", "4", nullptr));
         comboBox_axisID->setItemText(5, QCoreApplication::translate("MainWindowClass", "5", nullptr));
 
-        groupBox_2->setTitle(QCoreApplication::translate("MainWindowClass", "\350\275\264\347\212\266\346\200\201\344\277\241\346\201\257", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindowClass", "\347\273\235\345\257\271\344\275\215\347\275\256\357\274\232", nullptr));
-        label_realPos->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindowClass", "\345\221\275\344\273\244\344\275\215\347\275\256\357\274\232", nullptr));
-        label_cmdPos->setText(QCoreApplication::translate("MainWindowClass", "0", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindowClass", "\350\277\220\350\241\214\347\212\266\346\200\201\357\274\232", nullptr));
-        label_status->setText(QCoreApplication::translate("MainWindowClass", "Not opened", nullptr));
+        pushButton_initAxis->setText(QCoreApplication::translate("MainWindowClass", "\345\210\235\345\247\213\345\214\226\350\275\264", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("MainWindowClass", "\346\223\215\344\275\234\351\235\242\346\235\277", nullptr));
-        button_runDis->setText(QCoreApplication::translate("MainWindowClass", "GO", nullptr));
-        pushButton_axisReturnHome->setText(QCoreApplication::translate("MainWindowClass", "\350\277\224\345\233\236\351\233\266\344\275\215", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindowClass", "\350\277\220\350\241\214\350\267\235\347\246\273 (PPU)", nullptr));
-        pushButton_setAxisZero->setText(QCoreApplication::translate("MainWindowClass", "\350\256\276\347\275\256\351\233\266\344\275\215", nullptr));
-        groupBox_4->setTitle(QCoreApplication::translate("MainWindowClass", "\344\275\215\347\275\256\350\260\203\346\225\264", nullptr));
+        button_runDis->setText(QCoreApplication::translate("MainWindowClass", "GO", nullptr));
         toolButton_RevXCmove->setText(QCoreApplication::translate("MainWindowClass", "<<", nullptr));
         toolButton_RevXmove->setText(QCoreApplication::translate("MainWindowClass", "<", nullptr));
         toolButton_stopMotor->setText(QCoreApplication::translate("MainWindowClass", "STOP", nullptr));
         toolButton_Xmove->setText(QCoreApplication::translate("MainWindowClass", ">", nullptr));
-        toolButton_6->setText(QCoreApplication::translate("MainWindowClass", ">>", nullptr));
+        toolButton_XCmove->setText(QCoreApplication::translate("MainWindowClass", ">>", nullptr));
+        pushButton_setAxisZero->setText(QCoreApplication::translate("MainWindowClass", "\350\256\276\347\275\256\351\233\266\344\275\215", nullptr));
+        pushButton_axisReturnHome->setText(QCoreApplication::translate("MainWindowClass", "\350\277\224\345\233\236\351\233\266\344\275\215", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("MainWindowClass", "Menu", nullptr));
     } // retranslateUi
 

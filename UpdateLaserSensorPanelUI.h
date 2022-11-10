@@ -3,7 +3,7 @@
 #include <qthread.h>
 #include <qwidget.h>
 
-class UpdateLaserSensorPanelUI : public QThread{
+class UpdateLaserSensorPanelUI : public QThread {
 	Q_OBJECT
 public:
 	UpdateLaserSensorPanelUI(QWidget*);

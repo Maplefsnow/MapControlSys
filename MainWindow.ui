@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
-    <height>681</height>
+    <width>1068</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MapContorlSys - 枫控</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_9">
+   <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_8">
       <property name="font">
@@ -213,6 +213,82 @@
       </layout>
      </widget>
     </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>摄像机面板</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="CameraPanel" name="cameraPanel" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>设备SN：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_camSN">
+              <property name="text">
+               <string>未检测</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_detectCam">
+              <property name="text">
+               <string>检测</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QPushButton" name="pushButton_startGrab">
+              <property name="text">
+               <string>开始采集</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_stopGrab">
+              <property name="text">
+               <string>停止采集</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_cameraImage">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>400</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Image</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="1" column="0" colspan="2">
      <widget class="QGroupBox" name="groupBox_Motor">
       <property name="font">
@@ -227,6 +303,134 @@
        <item row="0" column="0">
         <widget class="MotorPanel" name="motorWidget" native="true">
          <layout class="QGridLayout" name="gridLayout_5">
+          <item row="2" column="0" colspan="2">
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>轴状态信息</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_11">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>绝对位置：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_realPos">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Line" name="line_3">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>命令位置：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_cmdPos">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="Line" name="line_2">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>运行状态：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_status">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei</family>
+                 <pointsize>11</pointsize>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Not opened</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
           <item row="1" column="0">
            <widget class="QGroupBox" name="groupBox">
             <property name="font">
@@ -590,44 +794,103 @@
             <property name="title">
              <string>轴初始化</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="font">
-                <font>
-                 <pointsize>11</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>板卡ID：</string>
-               </property>
-              </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QLabel" name="label_10">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>板卡ID：</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_cardID">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>未检测</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>检测</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="label_cardID">
-               <property name="font">
-                <font>
-                 <pointsize>11</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>未检测</string>
-               </property>
-              </widget>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QLabel" name="label_12">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>轴：</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_axisID">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>2</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>4</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>5</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+              </layout>
              </item>
-             <item row="0" column="2">
-              <widget class="QPushButton" name="pushButton">
-               <property name="font">
-                <font>
-                 <pointsize>11</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>检测</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="3">
+             <item>
               <widget class="QPushButton" name="pushButton_initAxis">
                <property name="font">
                 <font>
@@ -636,185 +899,6 @@
                </property>
                <property name="text">
                 <string>初始化轴</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_12">
-               <property name="font">
-                <font>
-                 <pointsize>11</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>轴：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" colspan="2">
-              <widget class="QComboBox" name="comboBox_axisID">
-               <property name="font">
-                <font>
-                 <pointsize>11</pointsize>
-                </font>
-               </property>
-               <item>
-                <property name="text">
-                 <string>0</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>1</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>2</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>3</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>4</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>5</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="2">
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="font">
-             <font>
-              <family>Microsoft YaHei UI</family>
-              <pointsize>11</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="title">
-             <string>轴状态信息</string>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLabel" name="label_11">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>绝对位置：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_realPos">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="Line" name="line_3">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_8">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>命令位置：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_cmdPos">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="Line" name="line_2">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_7">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>运行状态：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_status">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Not opened</string>
                </property>
               </widget>
              </item>
@@ -833,150 +917,146 @@
             <property name="title">
              <string>操作面板</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="3">
-              <widget class="QToolButton" name="button_runDis">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei UI</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>GO</string>
-               </property>
-              </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>运行距离 (PPU)</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="doubleSpinBox_runDis">
+                 <property name="decimals">
+                  <number>4</number>
+                 </property>
+                 <property name="minimum">
+                  <double>-10000000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>10000000.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="button_runDis">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>GO</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
-             <item row="2" column="2" colspan="2">
-              <widget class="QPushButton" name="pushButton_axisReturnHome">
-               <property name="text">
-                <string>返回零位</string>
-               </property>
-              </widget>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QToolButton" name="toolButton_RevXCmove">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&lt;&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_RevXmove">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_stopMotor">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>STOP</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_Xmove">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_XCmove">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&gt;&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_9">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei UI</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>运行距离 (PPU)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QPushButton" name="pushButton_setAxisZero">
-               <property name="text">
-                <string>设置零位</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_runDis">
-               <property name="decimals">
-                <number>4</number>
-               </property>
-               <property name="minimum">
-                <double>-10000000.000000000000000</double>
-               </property>
-               <property name="maximum">
-                <double>10000000.000000000000000</double>
-               </property>
-               <property name="singleStep">
-                <double>0.100000000000000</double>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0" colspan="4">
-              <widget class="QGroupBox" name="groupBox_4">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei UI</family>
-                 <pointsize>11</pointsize>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="title">
-                <string>位置调整</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_8">
-                <item row="0" column="0">
-                 <widget class="QToolButton" name="toolButton_RevXCmove">
-                  <property name="font">
-                   <font>
-                    <family>Microsoft YaHei UI</family>
-                    <pointsize>11</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>&lt;&lt;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QToolButton" name="toolButton_RevXmove">
-                  <property name="font">
-                   <font>
-                    <family>Microsoft YaHei UI</family>
-                    <pointsize>11</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>&lt;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QToolButton" name="toolButton_stopMotor">
-                  <property name="font">
-                   <font>
-                    <family>Microsoft YaHei UI</family>
-                    <pointsize>11</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>STOP</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QToolButton" name="toolButton_Xmove">
-                  <property name="font">
-                   <font>
-                    <family>Microsoft YaHei UI</family>
-                    <pointsize>11</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>&gt;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="4">
-                 <widget class="QToolButton" name="toolButton_6">
-                  <property name="font">
-                   <font>
-                    <family>Microsoft YaHei UI</family>
-                    <pointsize>11</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>&gt;&gt;</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QPushButton" name="pushButton_setAxisZero">
+                 <property name="text">
+                  <string>设置零位</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_axisReturnHome">
+                 <property name="text">
+                  <string>返回零位</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </widget>
@@ -994,7 +1074,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>818</width>
+     <width>1068</width>
      <height>22</height>
     </rect>
    </property>
@@ -1061,7 +1141,45 @@
     <slot>axis1Switcher(int)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>CameraPanel</class>
+   <extends>QWidget</extends>
+   <header>CameraPanel.h</header>
+   <container>1</container>
+   <slots>
+    <slot>initCam()</slot>
+    <slot>startGrab()</slot>
+    <slot>stopGrab()</slot>
+   </slots>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>comboBox_relayCards</tabstop>
+  <tabstop>pushButton_openRelayCards</tabstop>
+  <tabstop>checkBox_axis0Switcher</tabstop>
+  <tabstop>checkBox_axis1Switcher</tabstop>
+  <tabstop>checkBox_laserSensorSwitcher</tabstop>
+  <tabstop>checkBox_airValveSwitcher</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>comboBox_axisID</tabstop>
+  <tabstop>pushButton_initAxis</tabstop>
+  <tabstop>spinBox_PPU</tabstop>
+  <tabstop>spinBox_PPUDenominator</tabstop>
+  <tabstop>spinBox_acc</tabstop>
+  <tabstop>spinBox_dec</tabstop>
+  <tabstop>spinBox_runningVel</tabstop>
+  <tabstop>spinBox_initVel</tabstop>
+  <tabstop>paramsSetButton</tabstop>
+  <tabstop>doubleSpinBox_runDis</tabstop>
+  <tabstop>button_runDis</tabstop>
+  <tabstop>toolButton_RevXCmove</tabstop>
+  <tabstop>toolButton_RevXmove</tabstop>
+  <tabstop>toolButton_stopMotor</tabstop>
+  <tabstop>toolButton_Xmove</tabstop>
+  <tabstop>toolButton_XCmove</tabstop>
+  <tabstop>pushButton_setAxisZero</tabstop>
+  <tabstop>pushButton_axisReturnHome</tabstop>
+ </tabstops>
  <resources>
   <include location="MainWindow.qrc"/>
  </resources>
@@ -1089,11 +1207,11 @@
    <slot>checkCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>283</x>
-     <y>250</y>
+     <x>263</x>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
-     <x>609</x>
+     <x>604</x>
      <y>556</y>
     </hint>
    </hints>
@@ -1109,7 +1227,7 @@
      <y>316</y>
     </hint>
     <hint type="destinationlabel">
-     <x>609</x>
+     <x>604</x>
      <y>489</y>
     </hint>
    </hints>
@@ -1121,124 +1239,12 @@
    <slot>axisRunDis()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>779</x>
-     <y>248</y>
+     <x>584</x>
+     <y>289</y>
     </hint>
     <hint type="destinationlabel">
      <x>583</x>
      <y>436</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_stopMotor</sender>
-   <signal>clicked()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisStop()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>626</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>354</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_Xmove</sender>
-   <signal>pressed()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisRun()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>680</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>556</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_Xmove</sender>
-   <signal>released()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisStop()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>680</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>554</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_RevXmove</sender>
-   <signal>pressed()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisRunRev()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>544</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>380</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_RevXmove</sender>
-   <signal>released()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisStop()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>544</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>397</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_RevXCmove</sender>
-   <signal>clicked()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisRunRev()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>490</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>420</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton_6</sender>
-   <signal>clicked()</signal>
-   <receiver>motorWidget</receiver>
-   <slot>axisRun()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>745</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>537</y>
     </hint>
    </hints>
   </connection>
@@ -1249,8 +1255,8 @@
    <slot>setAxisZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>423</x>
-     <y>282</y>
+     <x>366</x>
+     <y>520</y>
     </hint>
     <hint type="destinationlabel">
      <x>409</x>
@@ -1265,8 +1271,8 @@
    <slot>axisReturnCmdZero()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>613</x>
-     <y>282</y>
+     <x>516</x>
+     <y>520</y>
     </hint>
     <hint type="destinationlabel">
      <x>542</x>
@@ -1281,7 +1287,7 @@
    <slot>openCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>385</x>
+     <x>345</x>
      <y>97</y>
     </hint>
     <hint type="destinationlabel">
@@ -1297,7 +1303,7 @@
    <slot>laserSensorSwitcher(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>299</x>
+     <x>282</x>
      <y>129</y>
     </hint>
     <hint type="destinationlabel">
@@ -1313,7 +1319,7 @@
    <slot>airValveSwitcher(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>385</x>
+     <x>351</x>
      <y>129</y>
     </hint>
     <hint type="destinationlabel">
@@ -1329,8 +1335,8 @@
    <slot>panelParamsUpdate(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>195</x>
-     <y>268</y>
+     <x>263</x>
+     <y>285</y>
     </hint>
     <hint type="destinationlabel">
      <x>196</x>
@@ -1367,6 +1373,166 @@
     <hint type="destinationlabel">
      <x>142</x>
      <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_stopMotor</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>441</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_Xmove</sender>
+   <signal>pressed()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisRun()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>496</x>
+     <y>398</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_Xmove</sender>
+   <signal>released()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>394</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXmove</sender>
+   <signal>pressed()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisRunRev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXmove</sender>
+   <signal>released()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisStop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>394</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_RevXCmove</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisRunRev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>326</x>
+     <y>391</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_XCmove</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisRun()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>539</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_detectCam</sender>
+   <signal>clicked()</signal>
+   <receiver>cameraPanel</receiver>
+   <slot>initCam()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>979</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1045</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_startGrab</sender>
+   <signal>clicked()</signal>
+   <receiver>cameraPanel</receiver>
+   <slot>startGrab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>687</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>633</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_stopGrab</sender>
+   <signal>clicked()</signal>
+   <receiver>cameraPanel</receiver>
+   <slot>stopGrab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>988</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1044</x>
+     <y>191</y>
     </hint>
    </hints>
   </connection>

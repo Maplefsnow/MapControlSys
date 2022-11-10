@@ -93,23 +93,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\Qt6.3.2\6.3.2\msvc2019_arm64\include;$(SolutionDir)includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);D:\vcpkg\packages\opencv4_x64-windows\lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);D:\Qt6.3.2\6.3.2\msvc2019_arm64\include;$(SolutionDir)includes;$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);D:\vcpkg\packages\opencv4_x64-windows\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>CV_IGNORE_DEBUG_BUILD_GUARD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)libs</AdditionalLibraryDirectories>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);opencv_core4.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -122,6 +124,14 @@
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);opencv_core4.lib</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>CV_IGNORE_DEBUG_BUILD_GUARD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -176,11 +186,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraPanel.cpp" />
+    <ClCompile Include="DaHengCamera.cpp" />
     <ClCompile Include="FAIORelay.cpp" />
     <ClCompile Include="LaserSensor.cpp" />
     <ClCompile Include="LaserSensorPanel.cpp" />
     <ClCompile Include="MotorPanel.cpp" />
     <ClCompile Include="RelayPanel.cpp" />
+    <ClCompile Include="UpdateCamImage.cpp" />
     <ClCompile Include="UpdateLaserSensorPanelUI.cpp" />
     <ClCompile Include="UpdateMotorPanelUI.cpp" />
     <QtRcc Include="MainWindow.qrc" />
@@ -195,6 +208,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h" />
+    <QtMoc Include="UpdateCamImage.h" />
+    <QtMoc Include="CameraPanel.h" />
+    <ClInclude Include="DaHengCamera.h" />
     <ClInclude Include="FAIORelay.h" />
     <ClInclude Include="LaserSensor.h" />
     <QtMoc Include="UpdateLaserSensorPanelUI.h" />
