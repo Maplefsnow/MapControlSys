@@ -15,6 +15,10 @@ public:
 	~DaHengCamera();
 
 	void initDeviceParams();
+	void startGrab();
+	void stopGrab();
+
+	CImageDataPointer getImage(uint32_t time);
 
 	CGXDevicePointer getDevice();
 	CGXFeatureControlPointer getCamFeatures();

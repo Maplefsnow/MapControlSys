@@ -42,8 +42,8 @@ void CameraPanel::DoOnImageCaptured(CImageDataPointer& imageData, void* pUserPar
     }
 }
 
-Q_INVOKABLE void CameraPanel::updateImage()
-{
+Q_INVOKABLE void CameraPanel::updateImage() {
+    
     return Q_INVOKABLE void();
 }
 
@@ -63,7 +63,7 @@ void CameraPanel::initCam() {
 
     this->camera = DaHengCamera(camSN);
 
-    initCamParams(&this->camera);
+    this->camera.initDeviceParams();
 }
 
 void CameraPanel::startGrab() {
@@ -76,18 +76,4 @@ void CameraPanel::stopGrab() {
     this->camera.getCamFeatures()->GetCommandFeature("AcquisitionStop")->Execute();
     this->camera.getCamStream()->StopGrab();
     this->camera.getCamStream()->UnregisterCaptureCallback();
-}
-
-void initCamParams(DaHengCamera* cam) {
-    CGXFeatureControlPointer camFeatures = cam->getCamFeatures();
-
-    camFeatures->GetIntFeature("DecimationHorizontal")->SetValue(4);
-    camFeatures->GetIntFeature("DecimationVertical")->SetValue(4);
-    camFeatures->GetEnumFeature("GainSelector")->SetValue("All");
-    camFeatures->GetFloatFeature("Gain")->SetValue(10.0000);
-    camFeatures->GetFloatFeature("ExposureTime")->SetValue(10000.00);
-    camFeatures->GetFloatFeature("AutoExposureTimeMax")->SetValue(200000.00);
-    camFeatures->GetEnumFeature("GainAuto")->SetValue("Continuous");
-    camFeatures->GetEnumFeature("ExposureAuto")->SetValue("Continuous");
-    camFeatures->GetEnumFeature("BalanceWhiteAuto")->SetValue("Continuous");
 }

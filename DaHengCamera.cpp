@@ -21,6 +21,20 @@ void DaHengCamera::initDeviceParams() {
 	camFeatures->GetEnumFeature("BalanceWhiteAuto")->SetValue("Continuous");
 }
 
+void DaHengCamera::startGrab() {
+	this->camStream->StartGrab();
+	this->camFeatures->GetCommandFeature("AcquisitionStart")->Execute();
+}
+
+void DaHengCamera::stopGrab() {
+	this->camFeatures->GetCommandFeature("AcquisitionStop")->Execute();
+	this->camStream->StopGrab();
+}
+
+CImageDataPointer DaHengCamera::getImage(uint32_t time = 200) {
+	return this->camStream->GetImage(time);
+}
+
 CGXDevicePointer DaHengCamera::getDevice() {
     return this->device;
 }

@@ -3,6 +3,7 @@
 #include <qthread.h>
 #include <qwidget.h>
 #include <GalaxyIncludes.h>
+#include <opencv2/core.hpp>
 
 class UpdateCamImage : public QThread, public ICaptureEventHandler {
 	Q_OBJECT
